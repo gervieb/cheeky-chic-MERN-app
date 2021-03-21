@@ -2,14 +2,14 @@ const express = require('express'),
           app = express(),
      mongoose = require('mongoose'),
    bodyParser = require('body-parser'),
-   cors       = require('cors'),
    pk_test    = require('./config.js'),  
     stripe    = require('stripe')(pk_test.pk),
          port = process.env.port || 4001;
      mongoUN  = require('./config.js').mongoUN
      mongoPW  = require('./config.js').mongoPW
      require('dotenv').config();
-
+     cors       = require('cors')
+     
 app.use(cors())
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());

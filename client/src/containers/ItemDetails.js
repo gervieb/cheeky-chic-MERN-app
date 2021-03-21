@@ -20,7 +20,7 @@ export default function ItemDetails({ match, onAdd, isAddedToCart, itemAddedToCa
 
   useEffect(() => {
       setIsAddedToCart(false)
-  }, [false])
+  }, [setIsAddedToCart])
 
   const fetchSingleProduct = async () => {
     try {

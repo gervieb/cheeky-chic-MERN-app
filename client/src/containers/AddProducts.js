@@ -69,7 +69,7 @@ export default function AddProducts(props) {
     const remove_picture = async (_id) => {
       try {
             await axios.delete(`/pictures/remove/${_id}`)
-            setProductDetails({...productDetails, image: {} })
+            setProductDetails({...productDetails, image: null })
       } 
       catch(error){
         console.log(error)
