@@ -1,0 +1,24 @@
+.carousel .slider-wrapper {
+    height: 650px !important;
+    width: 50% !important;
+    margin-left: 50%;
+}
+
+.slide img {
+    height: 650px !important;
+    width: 100% !important;
+}
+
+.control-arrow:hover, .control-next:hover{
+    background: none !important;
+}
+
+.carousel-slider{
+    background-color: rgb(161, 162, 163);
+}
+
+.thumbs {
+    width: 10%;
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
