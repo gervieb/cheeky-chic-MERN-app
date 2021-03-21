@@ -89,10 +89,13 @@ export default function AdminProductsList(props) {
 
     const fetchDataFromAPI = async () => {
       try {
-        const response = await axios.get(
-          `https://fakestoreapi.com/products/`
-        );
-        
+        const response = await axios.get('https://fakestoreapi.com/products', {
+          mode: 'cors',
+          headers: {
+              'Content-Type': 'application/json',
+              "Accept": 'application/json',
+          }
+        });
         response.data.map(el => {
           return addNewId(el);
       })

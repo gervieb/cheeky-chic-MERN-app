@@ -13,15 +13,18 @@ export default function AddProducts(props) {
     }, [])
 
     useEffect(() => {
-      setProductDetails({
-        title: '',
-        description: '',
-        price: '',
-        category: '',  
-        _id: '',
-        image: null
-      })
-    }, [])
+      const clearForm = () => {
+        setProductDetails({
+              title: '',
+              description: '',
+              price: '',
+              category: '',  
+              _id: '',
+              image: null
+            })
+       };
+       clearForm() // eslint-disable-next-line react-hooks/exhaustive-deps
+     }, [])
 
     const handleChange = e => {
         setProductDetails({ ...productDetails, [e.target.name]:e.target.value })

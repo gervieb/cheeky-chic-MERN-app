@@ -5,7 +5,7 @@ export default function Products({productData, onAddToCart, showAllProducts}) {
 
     useEffect(() => {
        showAllProducts()
-    }, [])
+    }, [showAllProducts]) // eslint-disable-next-line react-hooks/exhaustive-deps
 
     return ( 
         <div className="grid-2">  
