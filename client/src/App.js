@@ -38,7 +38,8 @@ export default function App() {
     price: '',
     category: '',  
     _id: '',
-    image: null
+    image: null,
+    image_id: ''
   })
 
   const token = JSON.parse(localStorage.getItem('token'));
@@ -95,7 +96,6 @@ export default function App() {
 		setIsLoggedIn(true);
   };
   
-
 
   const checkIfAdmin = ()=> {
     if (ad === null) {

@@ -22,7 +22,7 @@ export default function AdminUpdateProducts(props) {
           console.log(error)
         }
       }
-
+      
     return (
         <form 
         className={showProductForm? 'show-product-form' : 'hidden-form'}
@@ -71,8 +71,8 @@ export default function AdminUpdateProducts(props) {
         <div className='pictures_container'>
           {productDetails.image !== null &&
               <div className='picture_container'>
-                        <img alt={productDetails.title}  src={productDetails.image.photo_url} style={{width: '70%'}}/>
-                        <button type="button" onClick={()=> remove_picture(productDetails.image._id) }>Remove picture</button>
+                        <img src={productDetails.image} alt={productDetails.title} style={{width: '70%'}} onChange={handleChange}/>
+                        <button type="button" onClick={()=> remove_picture(productDetails._id) }>Remove picture</button>
               </div>
           }       
         </div> 

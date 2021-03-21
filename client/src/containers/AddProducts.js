@@ -20,7 +20,8 @@ export default function AddProducts(props) {
               price: '',
               category: '',  
               _id: '',
-              image: null
+              image: null,
+              image_id: ''
             })
        };
        clearForm() // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -51,7 +52,8 @@ export default function AddProducts(props) {
       description: '',
       price: '',
       category: '',  
-      image: null         
+      image: null,
+      image_id: ''         
     })
     e.target.value = null
   }
@@ -69,7 +71,7 @@ export default function AddProducts(props) {
     const remove_picture = async (_id) => {
       try {
             await axios.delete(`/pictures/remove/${_id}`)
-            setProductDetails({...productDetails, image: null })
+            setProductDetails({...productDetails, image: null, image_id: '' })
       } 
       catch(error){
         console.log(error)
@@ -111,8 +113,8 @@ export default function AddProducts(props) {
                   <div className='pictures_container'>
                     {productDetails.image !== null &&
                     <div className='picture_container'>
-                                    <img alt={productDetails.title}  src={productDetails.image.photo_url} style={{width: '70%'}}/>
-                                    <button type="button" onClick={()=> remove_picture(productDetails.image._id) }>Remove picture</button>
+                                    <img alt={productDetails.title}  src={productDetails.image} style={{width: '70%'}}/>
+                                    <button type="button" onClick={()=> remove_picture(productDetails.image_id) }>Remove picture</button>
                     </div>}      
                   </div>                            
               </div> 

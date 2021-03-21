@@ -26,9 +26,9 @@ export default function UploadImages(props) {
 			const response = await axios.post('/pictures/upload',{	
 				photo_url:result[0].secure_url, 
 				public_id:result[0].public_id
-			})															
-			response.data.ok? 
-			props.setProductDetails({...props.productDetails, image: response.data.created}): 
+			})														
+			response.data.ok? 	
+			props.setProductDetails({...props.productDetails, image: response.data.created.photo_url, image_id: response.data.created._id}): 			
 			alert('Something went wrong')
 		}catch(error){
 			console.log(error)
