@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
-import SingleProduct from './SingleProduct'
+import { Link } from 'react-router-dom'
 
-export default function Products({productData, onAddToCart, showAllProducts}) {
+export default function Products({productData, onAdd, showAllProducts}) {
 
     useEffect(() => {
        showAllProducts()
@@ -10,7 +10,16 @@ export default function Products({productData, onAddToCart, showAllProducts}) {
     return ( 
         <div className="grid-2">  
             {productData.map((product, id)=> 
-                <SingleProduct key={id} product={product} onAddToCart={onAddToCart} />
+                <div key={id}>
+                    <div className="img-wrap">
+                        <img src={product.image} alt={product.title} /> 
+                        <p className="img-add-cart" onClick={() => onAdd(product)}>Add To Cart</p>
+                    </div>
+                    <Link to={`./products/${product._id}`}>                
+                        <h4 className="product-title">{product.title}</h4>
+                    </Link>
+                    <p>€{product.price}</p>     
+                </div>
                  )}  
         </div>       
     )

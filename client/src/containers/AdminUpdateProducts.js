@@ -1,7 +1,6 @@
 import React from 'react'
 import { customInstance as axios } from '../config.js'
 import UploadImages from './UploadImages'
-import { AiOutlineDelete } from 'react-icons/ai'
 
 export default function AdminUpdateProducts(props) {
     const { 
@@ -72,7 +71,7 @@ export default function AdminUpdateProducts(props) {
         <div className='pictures_container'>
           {productDetails.image !== null &&
               <div className='picture_container'>
-                        <img clasName="image-upload" src={productDetails.image} alt={productDetails.title} style={{width: '40%'}} onChange={handleChange}/>
+                        <img className="image-upload" src={productDetails.image} alt={productDetails.title} style={{width: '40%'}} onChange={handleChange}/>
                         <button className="prev-data" type="button" onClick={()=> remove_picture(productDetails._id) }>Remove</button>
               </div>
           }       

@@ -167,7 +167,7 @@ export default function App() {
                             render = {props =>(<Home isLoggedIn={isLoggedIn} setCart={setCart} cart={cart} productData={productData} {...props} />)} />  
                         <Route
                           exact path="/products"
-                          render={(props) => <Products {...props} productData={productData} showAllProducts={showAllProducts} />}/>
+                          render={(props) => <Products {...props} onAdd={onAdd} productData={productData} showAllProducts={showAllProducts} />}/>
                         <Route exact path="/about" component={About} />
                         <Route exact path="/contact" component={Contact} />
                       <Route exact path="/register" component={Register} />
@@ -206,7 +206,7 @@ export default function App() {
                             render = {props =>(<Home isLoggedIn={isLoggedIn} setCart={setCart} cart={cart} productData={productData} {...props} />)} />  
                         <Route
                           exact path="/products"
-                          render={(props) => <Products {...props} productData={productData} showAllProducts={showAllProducts} />}/>
+                          render={(props) => <Products {...props} onAdd={onAdd} productData={productData} showAllProducts={showAllProducts} />}/>
                         <Route exact path="/about" component={About} />
                         <Route exact path="/contact" component={Contact} /> 
                         <Route exact path='/logout'

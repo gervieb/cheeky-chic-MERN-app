@@ -56,7 +56,7 @@ const Checkout = (props) => {
                                 <p><strong>{el.title}</strong></p>  
                                 <p>{el.description}</p>                     
                                 <p>Qty: <strong>{el.qty}</strong></p>
-                                <p>Price: <strong>€ {el.price}</strong></p>
+                                <p>Price: <strong>€{el.price}</strong></p>
                             </div>
                         </div>
                     })}
@@ -65,7 +65,7 @@ const Checkout = (props) => {
                         <div className="pay-div">
                             <div className="total-amount-container">
                                 <p>Total:</p>
-                                <p><strong>€ {params.amount}</strong></p>
+                                <p><strong>€{params.amount}</strong></p>
                             </div>
                             <p className="pay-text">All products are inclusive of duties and taxes.</p>
                             <StripeCheckout
@@ -78,7 +78,7 @@ const Checkout = (props) => {
                                 label={params.label}
                                 /> 
                         </div>
-                        <button onClick={() => {history.goBack(); }}>Back to Cart</button>
+                        <button className="back-to-cart" onClick={() => {history.goBack(); }}>Back to Cart</button>
                     </div>
                 </div>             
            </div>     

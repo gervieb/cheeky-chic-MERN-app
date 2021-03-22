@@ -32,19 +32,19 @@ export default function ItemDetails({ match, onAdd, isAddedToCart, itemAddedToCa
   };
 
   return ( 
-    <div className="product-wrapper grid-2">
+    <div className="product-wrapper grid-2-item">
       <div>
         <img src={item.image} alt={item.title} /><br/><br/>
         <button className="goBack" onClick={goBack}>previous</button>
       </div>
       <div className="product-details">
         <ul>
-          <li><h3>{item.title}</h3></li>
+          <li><h3 className="item-title">{item.title}</h3></li>
           <li><p>{item.description}</p></li>
           <li><label> Price: €{item.price} </label></li>
           <br />
           <li>
-            <button onClick={() => onAdd(item)}>add to cart</button>
+            <button type="submit" onClick={() => onAdd(item)}>add to cart</button>
             {isAddedToCart?
             <div>
               <FlashMessage duration={3000}>

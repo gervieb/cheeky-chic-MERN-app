@@ -48,12 +48,12 @@ return (
 			<form className="form-container" onSubmit={handleSubmit} onChange={handleChange}>
 			<h2>LOGIN</h2>
 			<label>Email *</label>    
-			<input name="email"/><br />
+			<input required={true} name="email"/><br />
 			<label>Password *</label>
-			<input name="password"/><br />
+			<input required={true} name="password"/><br />
 			<button type="submit">LOGIN</button>
 			<div className="signup-form">
-				<p>No account?</p><br />
+				<p>No account?</p>
 				<Link to={"/register"}>Create account</Link>
 			</div>
 			</form>
@@ -68,8 +68,7 @@ return (
 					<p><strong>email: </strong> <i>cheekychic.admin@gmail.com</i></p> 
 					<p><strong>password: </strong> <i>admin</i></p>
 				</div>
-			</div>	
-			<h6>or create your own account</h6>		
+			</div>		
 		</div>
 	)
 }

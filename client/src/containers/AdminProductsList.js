@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import SearchProduct from './SearchProduct'
 import { customInstance as axios } from '../config.js'
 import { MdDelete } from 'react-icons/md'
 import { FaRegEdit } from 'react-icons/fa'
