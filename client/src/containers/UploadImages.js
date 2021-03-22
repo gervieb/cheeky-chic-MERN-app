@@ -39,7 +39,7 @@ export default function UploadImages(props) {
 		<div className="flex_upload">
 			<div className="upload">					
 				<button type="button" className ="upload-button"
-					onClick={uploadWidget} ><BsUpload /><span>Upload Image</span>
+					onClick={uploadWidget} ><BsUpload /><span className="choose-file">Choose File</span>
 				</button>
 			</div>
 		</div>

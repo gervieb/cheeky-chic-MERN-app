@@ -68,7 +68,7 @@ export default function AdminProductsList(props) {
               newPrice      : productDetails.price,
               newDescription: productDetails.description,
               id            : productDetails.id,
-              newImage      : productDetails.image.photo_url
+              newImage      : productDetails.image
               })
               alert('product updated')    
       }
@@ -157,7 +157,7 @@ export default function AdminProductsList(props) {
                         <h2>ALL PRODUCTS</h2>                       
                     </div>
                     <div className="flex-2">
-                      <SearchProduct productList={productList} />
+                      {/* <SearchProduct productList={productList} /> */}
                       <div className="fetch-button">
                           <button onClick={()=> fetchDataFromAPI()}>DATA FROM API</button>
                     </div>

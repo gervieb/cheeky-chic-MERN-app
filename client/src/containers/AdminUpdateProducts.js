@@ -1,6 +1,7 @@
 import React from 'react'
 import { customInstance as axios } from '../config.js'
 import UploadImages from './UploadImages'
+import { AiOutlineDelete } from 'react-icons/ai'
 
 export default function AdminUpdateProducts(props) {
     const { 
@@ -32,7 +33,7 @@ export default function AdminUpdateProducts(props) {
         <div className="label-flex">
           <p>New Title:</p>
           <input 
-            className="new-product-title" 
+            className="new-product-title prev-data" 
             name="title" 
             placeholder="Enter title"
             value={productDetails.title}
@@ -41,7 +42,7 @@ export default function AdminUpdateProducts(props) {
         <div className="label-flex">
           <p>New Price €:</p>
           <input 
-            className="new-product-price" 
+            className="new-product-price prev-data" 
             name="price" 
             placeholder="Enter Price"
             value={productDetails.price}
@@ -50,7 +51,7 @@ export default function AdminUpdateProducts(props) {
         <div className="label-flex">
           <p>New Category:</p>
           <select name="category" className="category">
-              <option>CHOOSE NEW CATEGORY</option>
+              <option>CHOOSE CATEGORY</option>
               {categories.map((cat, id) => {
               return <option key={id} >{cat.category}</option>
             })}
@@ -71,8 +72,8 @@ export default function AdminUpdateProducts(props) {
         <div className='pictures_container'>
           {productDetails.image !== null &&
               <div className='picture_container'>
-                        <img src={productDetails.image} alt={productDetails.title} style={{width: '70%'}} onChange={handleChange}/>
-                        <button type="button" onClick={()=> remove_picture(productDetails._id) }>Remove picture</button>
+                        <img clasName="image-upload" src={productDetails.image} alt={productDetails.title} style={{width: '40%'}} onChange={handleChange}/>
+                        <button className="prev-data" type="button" onClick={()=> remove_picture(productDetails._id) }>Remove</button>
               </div>
           }       
         </div> 

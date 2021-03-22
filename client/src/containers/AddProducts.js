@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { customInstance as axios } from '../config.js'
 import UploadImages from './UploadImages'
 import { Link } from 'react-router-dom'
+import { AiOutlineDelete } from 'react-icons/ai'
 
 export default function AddProducts(props) {
   const {productDetails, setProductDetails} = props
-
+  const [message, setMessage] = useState('')
     const [categoryList, setCategoryList] = useState([]);
 
     useEffect(() => {
@@ -34,14 +35,17 @@ export default function AddProducts(props) {
     const createProduct = async (e) => {
         e.preventDefault()
       try{
-          await axios.post(`/products/create`, {
+          const response = await axios.post(`/products/create`, {
                   title    	  : productDetails.title,
                   description : productDetails.description,
                   price       : productDetails.price,
-                  image       : productDetails.image.photo_url,
+                  image       : productDetails.image,
                   category    : productDetails.category,
               })
-              alert(`${productDetails.title} is added to your products`)
+              response.status.ok?         
+              alert(`${productDetails.title} is added to your products`):
+              setMessage(response.data.error.message)
+              
       }
       catch( error ){
         console.log(error)
@@ -85,44 +89,45 @@ export default function AddProducts(props) {
               <div className="left-div">
                 <div className="label-wrapper">
                   <h5>TITLE</h5>
-                  <input onChange={handleChange} name="title" value={productDetails.title}></input>
+                  <input required={true} onChange={handleChange} name="title" value={productDetails.title}></input>
                 </div>
                 <div className="label-wrapper">
                     <h5>PRICE €</h5>
-                    <input onChange={handleChange} name="price" value={productDetails.price}></input> 
+                    <input required={true} onChange={handleChange} name="price" value={productDetails.price}></input> 
                 </div>
-                <div className="label-wrapper">
+                <div className="label-wrapper flex-column">
                     <h5>DESCRIPTION</h5>
-                    <textarea onChange={handleChange} name="description" value={productDetails.description}></textarea>
+                    <textarea required={true} onChange={handleChange} name="description" value={productDetails.description}></textarea>
                 </div>
               </div>
               <div className="right-div">
-              <div className="label-wrapper shadow">
+              <div className="shadow">
                   <h5>CATEGORY</h5>
-                    <select name="category" onChange={handleChange}>
-                        <option>CHOOSE CATEGORY</option>
+                    <select name="category" onChange={handleChange} required>
+                        <option value="">CHOOSE CATEGORY</option>
                         {categoryList.map((el, id) => {
                         return <option key={id} >{el.category}</option>
                       })}
                     </select> 
               </div>
-              <div className="label-wrapper shadow image-upload-wrapper">
+              <div className="shadow image-upload-wrapper">
                   <h5>IMAGE</h5>
                   <UploadImages productDetails={productDetails} setProductDetails={setProductDetails} />
               </div>
                   <div className='pictures_container'>
                     {productDetails.image !== null &&
                     <div className='picture_container'>
-                                    <img alt={productDetails.title}  src={productDetails.image} style={{width: '70%'}}/>
-                                    <button type="button" onClick={()=> remove_picture(productDetails.image_id) }>Remove picture</button>
+                                    <img className="image-upload" alt={productDetails.title}  src={productDetails.image} />
+                                    <button type="button" onClick={()=> remove_picture(productDetails.image_id) }>Remove</button>
                     </div>}      
                   </div>                            
               </div> 
             </div> 
             <div className="clear">         
               <button type="submit">Add product</button>   
-              <Link to={"/admin/products-list"} className="view-products">View products</Link>    
-            </div>   
+              {/* <Link to={"/admin/products-list"} className="view-products">View products</Link>     */}
+            </div>
+            <p className="add-products-error-message">{message}</p>
         </form>
     )
 }

@@ -113,7 +113,7 @@ export default function AdminCategories() {
                 </form>
                 <form  
                 onSubmit={createCategory} >
-                    <input type="text" placeholder="Enter category" name="category" value={catName} onChange={(e) => setCatName(e.target.value)}></input>
+                    <input className="enter-category" type="text" placeholder="Enter category" name="category" value={catName} onChange={(e) => setCatName(e.target.value)}></input>
                     <button type="submit">Add Category</button>
                 </form>
             </div>
