@@ -1,5 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import StoreIcon from '@material-ui/icons/Store';
+import PhoneIcon from '@material-ui/icons/Phone';
+import EmailIcon from '@material-ui/icons/Email';
+import ScheduleIcon from '@material-ui/icons/Schedule';
 
 export default function Footer() {
     return (
@@ -7,14 +11,22 @@ export default function Footer() {
             <footer>
                 <div>
                     <h4>CONTACT INFORMATION</h4>
-                        <h5>ADDRESS</h5>
-                        <h6>123 Street Name, Warsaw, Poland</h6>
-                        <h5>PHONE</h5>
-                        <h6>123-456-789</h6>
-                        <h5>EMAIL</h5>
-                        <h6>cheekychic@gmail.com</h6>
-                        <h5>WORKING DAYS/HOURS</h5>
-                        <h6>Mon - Fri / 9:00AM - 8:00PM</h6>
+                        <div className="contact-footer">
+                            <StoreIcon />
+                            <h6>123 Street, Warsaw, Poland</h6>
+                        </div>
+                        <div className="contact-footer">
+                            <PhoneIcon />
+                            <h6> 123-456-789</h6>
+                        </div>
+                        <div className="contact-footer">
+                            <EmailIcon />
+                            <h6>cheekychic@gmail.com</h6>
+                        </div>
+                        <div className="contact-footer">
+                            <ScheduleIcon />
+                            <h6>Mon - Fri / 9:00AM - 8:00PM</h6>
+                        </div>                     
                 </div>
                 <div>
                     <h4>MY ACCOUNT</h4>

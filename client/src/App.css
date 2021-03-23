@@ -1227,13 +1227,13 @@ div.clear {
 /* === footer === */
 
 footer {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 45% 30% 25%;
   background-color: rgb(225, 244, 244);;
   color: rgb(0, 99, 177);
-  padding: 1em;
-  line-height: 0.5em;
+  line-height: 0.1em;
+  padding: 1% 10%;
+  grid-gap: 2em;
 }
 
 footer > div {
@@ -1244,6 +1244,17 @@ footer div > a {
   text-decoration: none;
   color: rgb(0, 99, 177);;
   margin: 0;
+}
+
+.contact-footer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 40px;
+}
+
+.contact-footer h6 {
+  padding-left: 10px;
 }
 
 
@@ -1691,6 +1702,12 @@ footer div > a {
   .signup-form a {
     font-size: small;
   }
+
+  footer {
+    grid-template-columns: 45% 25% 30%;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
 }
 
 @media only screen and (max-width: 560px) {
@@ -1824,6 +1841,20 @@ footer div > a {
 
   .login-user {
     margin-right: 20px;
+  }
+
+  footer {
+    grid-template-columns: 100%;
+    grid-gap: 10px;
+    padding-left: 10%;
+  }
+
+  footer h4 {
+    font-size: small;
+  }
+
+  .contact-footer {
+    height: 30px;
   }
 }
 

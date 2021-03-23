@@ -5,15 +5,6 @@ export default function UsersList() {
     const [filteredUsers, setFilteredUsers] = useState([])
 
    useEffect(() => {
-       findUsersList()
-   }, [])
-
-   const filtered = (userList)=> {
-    let users = userList.filter(user => user.admin === false);
-    setFilteredUsers(users)
-   }
-   
-
     const findUsersList = async()=> {
         try {
             const users = await axios.get(`/users/`)
@@ -22,6 +13,13 @@ export default function UsersList() {
             console.log(error)
         }
     }
+    findUsersList()
+   }, [])
+
+   const filtered = (userList)=> {
+    let users = userList.filter(user => user.admin === false);
+    setFilteredUsers(users)
+   }
 
 
     return (
