@@ -26,18 +26,22 @@ export default function UsersList() {
         <div className="userslist-main-container">
             <h1>USERS LIST</h1>
             <table className="userslist-table userslist-wrapper">
-                <tr>
-                    <th>FIRST NAME</th>
-                    <th>LAST NAME</th>
-                    <th>EMAIL</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>FIRST NAME</th>
+                        <th>LAST NAME</th>
+                        <th>EMAIL</th>
+                    </tr>
+                </thead>
             
             {filteredUsers.map((el, idx)=> {
-                return <tr key={idx}>
-                            <td>{el.firstName}</td>
-                            <td>{el.lastName}</td>
-                            <td>{el.email}</td>
-                       </tr>
+                return <tbody key={idx}>
+                            <tr>
+                                <td>{el.firstName}</td>
+                                <td>{el.lastName}</td>
+                                <td>{el.email}</td>
+                            </tr>
+                       </tbody>
             })}
             </table>
         </div>

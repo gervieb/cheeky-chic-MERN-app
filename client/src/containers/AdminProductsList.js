@@ -86,54 +86,6 @@ export default function AdminProductsList(props) {
       showAllProducts()  
     }
 
-    const fetchDataFromAPI = async () => {
-      try {
-        const response = await axios.get('https://fakestoreapi.com/products', {
-          headers:{
-            'X-Requested-With': 'XMLHttpRequest'
-          }
-        });
-        console.log(response.data)
-        response.data.map(el => {
-          return addNewId(el);
-      })
-
-      } catch (error) {
-        console.log("error ==>", error);
-      }
-    };
-
-    const addNewId = async (el) => {
-      try {
-        const response = await axios.get(
-          `/products/product/${el.id}`
-        );
-        if(response.data.myProduct == null){
-            saveFetchData(el);
-        }
-      } catch (error) {
-        console.log("error ==>", error);
-      }
-    };
-
-    const saveFetchData = async (el) => {
-          
-          try{
-              await axios.post(`/products/createFromAPI`, {
-                  title     	: el.title,
-                  description : el.description,
-                  price       : el.price,
-                  category    : el.category,
-                  image       : el.image,
-                  id          : el.id
-              })
-              alert('Request succeeded!')
-          }
-          catch( error ){
-              console.log(error)
-          }
-      }
-
     const deleteProduct = async (id) => {
         try{
           var decision = window.confirm('Are you sure you want to delete this item?')
@@ -156,9 +108,8 @@ export default function AdminProductsList(props) {
                         <h2>ALL PRODUCTS</h2>                       
                     </div>
                     <div className="flex-2">
-                      {/* <SearchProduct productList={productList} /> */}
                       <div className="fetch-button">
-                          <button onClick={()=> fetchDataFromAPI()}>DATA FROM API</button>
+                          <button>DATA FROM API</button>
                     </div>
                     </div>
                 </div>

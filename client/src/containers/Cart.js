@@ -28,12 +28,14 @@ export default function Cart(props) {
             <h3>Items {cartlength}</h3>
           </div>
           <table id="cart">
-            <tr>
-              <th>PRODUCT</th>
-              <th>QUANTITY</th>
-              <th>PRICE</th>
-              <th>REMOVE</th>
-            </tr>
+            <thead>
+              <tr>
+                <th>PRODUCT</th>
+                <th>QUANTITY</th>
+                <th>PRICE</th>
+                <th>REMOVE</th>
+              </tr>
+            </thead>
                 {renderCart}
           </table>
         </div>

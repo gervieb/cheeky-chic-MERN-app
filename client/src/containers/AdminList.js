@@ -27,18 +27,22 @@ export default function AdminList() {
         <div className="userslist-main-container">
             <h1>ADMIN LIST</h1>
             <table className="userslist-table userslist-wrapper">
-                <tr>
-                    <th>FIRST NAME</th>
-                    <th>LAST NAME</th>
-                    <th>EMAIL</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>FIRST NAME</th>
+                        <th>LAST NAME</th>
+                        <th>EMAIL</th>
+                    </tr>
+                </thead>
                 
                 {filteredAdmins.map((el, idx)=> {
-                    return <tr key={idx}>
-                                <td>{el.firstName}</td>
-                                <td>{el.lastName}</td>
-                                <td>{el.email}</td>
-                        </tr>
+                    return <tbody key={idx}>
+                                <tr>
+                                    <td>{el.firstName}</td>
+                                    <td>{el.lastName}</td>
+                                    <td>{el.email}</td>
+                                </tr>
+                            </tbody>
                 })}
             </table>
         </div>
