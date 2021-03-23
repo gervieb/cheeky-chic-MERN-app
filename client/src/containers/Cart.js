@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom'
 
 export default function Cart(props) {
   const { cartlength, handleRemoveFromCart, onAdd, onRemove, cart } = props;
-
-  const totalPrice = cart.reduce((acc, curr) => acc + curr.price * curr.qty, 0)
+  const price = cart.reduce((acc, curr) => acc + curr.price * curr.qty, 0);
+  const shippingFee = 24;
+  const totalPrice = price + shippingFee;
 
   const renderCart = cart.map((item, idx) => (
     <ItemInCart
@@ -18,36 +19,53 @@ export default function Cart(props) {
   ));
 
   return (
-    <div className="cart-wrapper">
+    <div className="cart-wrapper"> 
       {cartlength === 0 ? (<p>Your shopping basket is empty</p>): 
-      (<div>
-          <h3>Your shopping Basket</h3>
-          <div className="grid-4 grid-4-title">
-              <div><h4>PRODUCT</h4></div>
-              <div><h4>PRICE</h4></div>
-              <div><h4>QUANTITY</h4></div>
-              <div><h4>REMOVE</h4></div>
+      (<div className="cart-flex">
+        <div className="cart">
+          <div className="cart-title"> 
+            <h3>Your shopping Basket</h3>
+            <h3>Items {cartlength}</h3>
           </div>
-              {renderCart}
+          <table id="cart">
+            <tr>
+              <th>PRODUCT</th>
+              <th>QUANTITY</th>
+              <th>PRICE</th>
+              <th>REMOVE</th>
+            </tr>
+                {renderCart}
+          </table>
+        </div>
               {cart.length !== 0 && (
-              <><hr></hr>
-                <div className="total-price">
-                    <p>Total:</p>
-                    <p className="total"><strong>€{totalPrice.toFixed(2)}</strong></p>
-                    <Link to={{ 
-                      pathname: "/checkout",
-                      state: {
-                        name: 'Payment Test Mode',
-                        description: 'Please enter your details',
-                        label: 'PAY',
-                        amount: totalPrice,
-                        cartList: cart                   
-                        }
-                      }}>CHECKOUT
-                  </Link>
-                </div> 
-                <Link to="/products"><p className="continue-shopping">Continue shopping</p></Link> 
-            </>
+        <div className="price-wrapper">
+          <div className="total-price">
+              <h3>Summary</h3>
+              <div className="cost-container reduce">
+                <p>SUBTOTAL</p>
+                <p><strong>€{price.toFixed(2)}</strong></p>
+              </div>
+              <div className="cost-container reduce">
+                <p>SHIPPING COST</p>
+                <p><strong>€{shippingFee}</strong></p>
+              </div>
+              <div className="cost-container total-cost">
+                <p>TOTAL PRICE</p>
+                <p><strong>€{totalPrice}</strong></p>
+              </div> 
+              <Link to={{ 
+                pathname: "/checkout",
+                state: {
+                  name: 'Payment Test Mode',
+                  description: 'Please enter your details',
+                  label: 'PAY',
+                  amount: totalPrice,
+                  cartList: cart                   
+                  }
+                }}>CHECKOUT
+            </Link>
+          </div> 
+        </div>
           )}
         </div>
       )}
