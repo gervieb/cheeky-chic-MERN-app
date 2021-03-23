@@ -1237,7 +1237,7 @@ div.clear {
 
 footer {
   display: grid;
-  grid-template-columns: 45% 30% 25%;
+  grid-template-columns: 45% 30% 20%;
   background-color: rgb(225, 244, 244);;
   color: rgb(0, 99, 177);
   line-height: 0.1em;
@@ -1558,7 +1558,9 @@ footer div > a {
   }
 
   .about-container {
-    width: 80%;
+    width: 70%;
+    height: auto;
+    padding-bottom: 60px;
   }
 
   .navbar {
@@ -1733,9 +1735,13 @@ footer div > a {
   }
 
   footer {
-    grid-template-columns: 45% 25% 30%;
+    grid-template-columns: 48% 28% 22%;
     padding-left: 5%;
-    padding-right: 5%;
+    grid-gap: 1em;
+  }
+
+  .about-container {
+    padding-top: 20px;
   }
 }
 
@@ -1780,6 +1786,8 @@ footer div > a {
   .grid-2 {
     display: grid;
     grid-template-columns: 100%;
+    margin-top: 40px;
+    margin-bottom: 40px;
   }
 }
 
