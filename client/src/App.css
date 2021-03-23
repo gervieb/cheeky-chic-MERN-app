@@ -1251,6 +1251,10 @@ footer div > a {
   .products-grid-5 {
   grid-column-gap: 2.5em;
   }
+
+  .carousel .slider-wrapper {
+    width: 50% !important;
+  }
 }
 
 @media only screen and (max-width: 1400px) {
@@ -1444,6 +1448,16 @@ footer div > a {
   .contact-container {
     width: 70%;
   }
+
+  .carousel .slider-wrapper {
+    height: 500px !important;
+    width: 55% !important;
+  }
+
+  .slide img {
+      height: 500px !important;
+      width: 100% !important;
+  }
 }
 
 @media only screen and (max-width: 900px) {
@@ -1479,6 +1493,10 @@ footer div > a {
 
   .contact-container {
     width: 90%;
+  }
+
+  .carousel .slider-wrapper {
+    width: 55% !important;
   }
 } 
 
@@ -1633,6 +1651,10 @@ footer div > a {
 
   .navbar {
     width: 70%;
+  }
+
+  .carousel .slider-wrapper {
+    width: 100% !important;
   }
 }
 
