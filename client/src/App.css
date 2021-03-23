@@ -374,8 +374,9 @@ span {
 
 .grid-2-item {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  margin: 5% 10%;
+  grid-template-columns: 60% 40%;
+  margin: 5% 0;
+  grid-gap: 1em;
 }
 
 .product-wrapper {
@@ -387,9 +388,18 @@ span {
   height: 500px;
 }
 
-.goBack {
-  margin-right: 580px;
-  margin-top: 50px;
+.go-back-flex {
+  width: 60px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 30px;
+  padding: 5px 10px;
+  height: 20px;
+}
+
+.go-back-flex:hover {
+  background-color: #d3d3d3;
 }
 
 .product-details ul {
@@ -399,7 +409,6 @@ span {
   text-align: left;
   line-height: 2em;
   margin: 0;
-  padding: 0;
 }
 
 .item-title {
@@ -1555,6 +1564,11 @@ footer div > a {
   .navbar {
     width: 60%;
   }
+
+  .product-wrapper img {
+    width: 300px;
+    height: 300px;
+  }
 }
 
 @media only screen and (max-width: 700px) {
@@ -1703,6 +1717,21 @@ footer div > a {
     font-size: small;
   }
 
+  .product-details label {
+    font-size: small;
+  }
+
+  .grid-2-item {
+    grid-template-columns: 100%;
+    margin-left: 10%;
+    margin-right: 10%; 
+    grid-gap: 1em; 
+  }
+
+  .product-details p{
+    line-height: 1em;
+  }
+
   footer {
     grid-template-columns: 45% 25% 30%;
     padding-left: 5%;
@@ -1754,7 +1783,7 @@ footer div > a {
   }
 }
 
-@media only screen and (max-width: 470px) {
+@media only screen and (max-width: 490px) {
   .shop-title {
     font-size: 18px;
     padding: 0 10px;
@@ -1856,6 +1885,10 @@ footer div > a {
   .contact-footer {
     height: 30px;
   }
+
+  .product-details button {
+    margin-top: 0;
+  }
 }
 
 @media only screen and (max-width: 390px) {
@@ -1866,6 +1899,11 @@ footer div > a {
 
   .login-user p , .login-admin p {
     font-size: x-small;
+  }
+
+  .product-wrapper img {
+    width: 200px;
+    height: 200px;
   }
 }
 

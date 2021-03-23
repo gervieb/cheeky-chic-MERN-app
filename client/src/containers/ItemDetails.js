@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom"
 import FlashMessage from 'react-flash-message'
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { customInstance as axios } from '../config.js'
 
 export default function ItemDetails({ match, onAdd, isAddedToCart, itemAddedToCart, setIsAddedToCart}) {
@@ -34,14 +35,13 @@ export default function ItemDetails({ match, onAdd, isAddedToCart, itemAddedToCa
   return ( 
     <div className="product-wrapper grid-2-item">
       <div>
-        <img src={item.image} alt={item.title} /><br/><br/>
-        <button className="goBack" onClick={goBack}>previous</button>
+        <img src={item.image} alt={item.title} />
       </div>
       <div className="product-details">
         <ul>
           <li><h3 className="item-title">{item.title}</h3></li>
           <li><p>{item.description}</p></li>
-          <li><label> Price: €{item.price} </label></li>
+          <li><label><strong>Price:</strong> €{item.price} </label></li>
           <br />
           <li>
             <button type="submit" onClick={() => onAdd(item)}>add to cart</button>
@@ -55,6 +55,10 @@ export default function ItemDetails({ match, onAdd, isAddedToCart, itemAddedToCa
           </li>
         </ul>
       </div> 
+      <div className="go-back-flex">
+          <ChevronLeftIcon />
+          <p className="go-back" onClick={goBack}>Back</p>
+      </div>
     </div>
   );
 }
