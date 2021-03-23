@@ -10,11 +10,11 @@ export default function Products({productData, onAdd, showAllProducts}) {
     return ( 
         <div className="grid-2">  
             {productData.map((product, id)=> 
-                <div key={id}>
-                    <div className="img-wrap">
+                <div key={id} className="img-wrap">
+                    
                         <img src={product.image} alt={product.title} /> 
                         <p className="img-add-cart" onClick={() => onAdd(product)}>Add To Cart</p>
-                    </div>
+                   
                     <Link to={`./products/${product._id}`}>                
                         <h4 className="product-title">{product.title}</h4>
                     </Link>

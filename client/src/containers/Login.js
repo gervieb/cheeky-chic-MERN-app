@@ -60,13 +60,17 @@ return (
 			<div className="login-details">
 				<div className="login-user">
 					<h6>login as user</h6>
-					<p><strong>email: </strong><i>gervie.demo@gmail.com</i></p> 
-					<p><strong>password: </strong><i>user</i></p>
+					<p><strong>email:</strong></p>
+					<p><i>gervie.demo@gmail.com</i></p> 
+					<p><strong>password:</strong></p>
+					<p><i>user</i></p>
 				</div>
 				<div className="login-admin">
 					<h6>login as admin</h6>
-					<p><strong>email: </strong> <i>cheekychic.admin@gmail.com</i></p> 
-					<p><strong>password: </strong> <i>admin</i></p>
+					<p><strong>email:</strong></p>
+					<p><i>cheekychic.admin@gmail.com</i></p> 
+					<p><strong>password:</strong></p> 
+					<p><i>admin</i></p>
 				</div>
 			</div>		
 		</div>

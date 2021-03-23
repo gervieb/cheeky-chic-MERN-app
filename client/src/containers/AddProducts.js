@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { customInstance as axios } from '../config.js'
 import UploadImages from './UploadImages'
-import { Link } from 'react-router-dom'
-import { AiOutlineDelete } from 'react-icons/ai'
 
 export default function AddProducts(props) {
   const {productDetails, setProductDetails} = props
@@ -125,7 +123,6 @@ export default function AddProducts(props) {
             </div> 
             <div className="clear">         
               <button type="submit">Add product</button>   
-              {/* <Link to={"/admin/products-list"} className="view-products">View products</Link>     */}
             </div>
             <p className="add-products-error-message">{message}</p>
         </form>

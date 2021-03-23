@@ -33,24 +33,22 @@ const handleSubmit=(e)=> {
 
 
     return (
-        <div className="container">           
-            <form className="form-container contact" onSubmit={handleSubmit}>
-                <h1>Get in Touch</h1>
-                <br />
-                <label>Name *</label>
-                <input required={true} type="text" name="name"/>
-                <br /> 
-                <label>Email Address *</label>
-                <input required={true} type="email" name="email"/>
-                <br />
-                <label>Subject *</label>
-                <input required={true} type="text" name="subject"/>
-                <br />
-                <label>Message *</label>
-                <input required={true} type="text" name="message"/>
-                <br />
-                <button type="submit">Submit</button>
-            </form>
+        <div className="container"> 
+            <div className="contact-container">          
+                <form className="contact" onSubmit={handleSubmit}>
+                    <h1>GET IN TOUCH</h1>
+                    <p>Got a question? We'd love to hear from you.
+                        Send us a message and we'll respond as soon ass possible.
+                    </p>
+                    <div className="flex-input">
+                        <input required={true} type="text" name="name" placeholder="Your Name"/>
+                        <input required={true} type="email" name="email" placeholder="Your Email"/>
+                    </div>
+                    <input className="subject" required={true} type="text" name="subject" placeholder="Subject"/>
+                    <textarea required={true} type="text" name="message" placeholder="Your Message"/>
+                    <button type="submit">Send Message </button>
+                </form>
+            </div>
         </div>
     )
 }

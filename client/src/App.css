@@ -64,8 +64,7 @@ body {
   font-size: small;
 }
 
-.search-bar-wrapper input,
-a {
+.search-bar-wrapper input, .search-bar-wrapper a {
   margin-left: 1em;
 }
 
@@ -174,9 +173,9 @@ button[type="submit"], .total-price> a {
 
 .login-details {
   display: flex;
-  width: 400px;
   padding: 10px;
   margin: 10px auto;
+  justify-content: center;
 }
 
 .login-user > p, .login-user > h6{
@@ -191,8 +190,53 @@ button[type="submit"], .total-price> a {
   text-align: left;
 }
 
-.contact, .register {
+.contact-container {
+  width: 40%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.flex-input .subject {
+  text-align: left;
+}
+
+.register {
   margin-bottom: 5%;
+}
+
+.contact {
+  margin-bottom: 10%;
+}
+
+.contact-container form {
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.flex-input {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  margin-top: 40px;
+}
+
+.contact textarea {
+  height: 120px;
+  width: 90%;
+  outline: none;
+  font-family: sans-serif;
+  padding: 20px;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.contact h1, .contact p {
+  text-align: center;
+}
+
+.contact {
+  text-align: left;
 }
 
 /* === user-profile === */
@@ -286,12 +330,14 @@ span {
 
 .img-wrap {
   position: relative;
+  text-align: center;
 }
 
 .img-add-cart {
   position: absolute;
-  top: 60%;
-  left: 43%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background: rgba(0, 99, 177, 0.92);
   padding: 5px 10px;
   border: 1px solid white;
@@ -316,6 +362,7 @@ span {
 
 .product-title {
   text-transform: uppercase;
+  margin-bottom: 0;
 }
 
 .grid-2 p {
@@ -1224,8 +1271,8 @@ footer div > a {
     margin-left: 0;
   }
 
-  .img-add-cart {
-    left: 40%;
+  .contact-container {
+    width: 60%;
   }
 }
 
@@ -1390,6 +1437,13 @@ footer div > a {
     padding: 0 20px;
     margin-bottom: 20px;
   }
+  .shop-title {
+    font-size: 40px;
+  }
+
+  .contact-container {
+    width: 70%;
+  }
 }
 
 @media only screen and (max-width: 900px) {
@@ -1422,19 +1476,13 @@ footer div > a {
   .right-div {
     width: 78%;
   }
+
+  .contact-container {
+    width: 90%;
+  }
 } 
 
 @media only screen and (max-width: 800px) {
-  .shop-title {
-    font-size: 28px;
-  }
-
-  .grid-2 {
-    display: grid;
-    grid-template-columns: 100%;
-    grid-gap: 6em;
-  }
-
   .grid-2 > div > p {
     margin: 0;
   }
@@ -1466,11 +1514,23 @@ footer div > a {
   .userslist-table td {
     font-size: small;
   }
+
+  .shop-title {
+    font-size: 38px;
+  }
+
+  .about-container {
+    width: 80%;
+  }
+
+  .navbar {
+    width: 60%;
+  }
 }
 
 @media only screen and (max-width: 700px) {
   .shop-title {
-    font-size: 18px;
+    font-size: 28px;
   }
 
   .grid-4-title {
@@ -1553,6 +1613,27 @@ footer div > a {
     margin-left: auto;
     margin-right: auto;
   }
+
+  input, .contact textarea {
+    font-size: 14px;
+  }
+
+  .input {
+    padding: 8px;
+  }
+
+  .grid-2 div > img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .grid-2 {
+    grid-gap: 4em;
+  }
+
+  .navbar {
+    width: 70%;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -1579,18 +1660,27 @@ footer div > a {
   button[type="submit"] {
     font-size: small;
   }
+  
+  .navbar a {
+    font-size: medium;
+    letter-spacing: 0;
+  }
+
+  .signup-form a {
+    font-size: small;
+  }
 }
 
-@media only screen and (max-width: 540px) {
+@media only screen and (max-width: 560px) {
   .shop-title {
-    font-size: 14px;
+    font-size: 18px;
   }
 
   .searchbar input {
     padding: 5px 5px;
   }
 
-  .searchbar input, a {
+  .searchbar input, .searchbar a {
     margin-left: 0.5em;
   }
 
@@ -1610,9 +1700,27 @@ footer div > a {
     font-size: small;
     margin-left: 7px;
   } 
+
+  input {
+    font-size: 12px;
+  }
+
+  .contact-container form {
+    width: 90%;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 100%;
+  }
 }
 
-@media only screen and (max-width: 460px) {
+@media only screen and (max-width: 470px) {
+  .shop-title {
+    font-size: 18px;
+    padding: 0 10px;
+  }
+
   .left-div {
     width: 90%;
   }
@@ -1639,6 +1747,78 @@ footer div > a {
 
   .userslist-table td {
     font-size: x-small;
+  }
+
+  .navbar a {
+    font-size: small;
+  }
+
+  .header-container {
+    padding: 0 0.5em;
+  }
+
+  .search-bar {
+    width: 60px;
+    height: 1px;
+  }
+
+  .search-bar-wrapper input {
+    font-size: x-small;
+  }
+
+  .header-container a {
+    font-size: small;
+  }
+
+  .form-container {
+    width: 250px;
+  }
+
+  .flex-input {
+    flex-direction: column;
+  }
+
+  .flex-input input[type="email"] {
+    margin-top: 10px;
+  }
+
+  input {
+    width: 80%;
+    font-size: small;
+    padding: 8px;
+  }
+
+  .container textarea {
+    width: 80%;
+  }
+
+  .container h1, .about-container h1 {
+    font-size: x-large;
+  }
+
+  .signup-form {
+    width: 80%;
+  }
+
+  .login-user {
+    margin-right: 20px;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  .shop-title {
+    font-size: 16px;
+    padding-left: 0;
+  }
+
+  .login-user p , .login-admin p {
+    font-size: x-small;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .shop-title {
+    font-size: 12px; 
   }
 }
 
