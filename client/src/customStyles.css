@@ -1,12 +1,11 @@
 .carousel .slider-wrapper {
-    height: 650px !important;
-    width: 40% !important;
-    /* margin-left: 50%; */
+    height: 640px !important;
+    max-width: 650px !important;
 }
 
 .slide img {
-    height: 650px !important;
-    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
 }
 
 .control-arrow:hover, .control-next:hover{
@@ -20,4 +19,8 @@
 .thumbs {
     margin-right: auto !important;
     margin-left: auto !important;
+}
+
+.carousel .slide {
+    background: none !important;
 }

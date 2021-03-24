@@ -4,9 +4,7 @@ import UploadImages from './UploadImages'
 
 export default function AddProducts(props) {
   const {productDetails, setProductDetails} = props
-  const {isError, setIsError} = useState(false)
-  const [message, setMessage] = useState('')
-    const [categoryList, setCategoryList] = useState([]);
+  const [categoryList, setCategoryList] = useState([]);
 
     useEffect(() => {
       showCategories()
@@ -34,18 +32,16 @@ export default function AddProducts(props) {
     const createProduct = async (e) => {
         e.preventDefault()
       try{
-          const response = await axios.post(`/products/create`, {
+          await axios.post(`/products/create`, {
                   title    	  : productDetails.title,
                   description : productDetails.description,
                   price       : productDetails.price,
                   image       : productDetails.image,
                   category    : productDetails.category,
-              })
-              console.log(response.data.error.message)
-              response.status.ok?         
-              alert(`${productDetails.title} is added to your products`):
-              setIsError(true)
-              setMessage(response.data.error.message)
+              }) 
+
+			    alert(`${productDetails.title} is added to your products`)
+              
               
       }
       catch( error ){
@@ -127,7 +123,6 @@ export default function AddProducts(props) {
             <div className="clear">         
               <button type="submit">Add product</button>   
             </div>
-            {isError? <p className="add-products-error-message">{message}</p> : null}
         </form>
     )
 }

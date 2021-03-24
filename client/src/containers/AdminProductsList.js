@@ -107,11 +107,6 @@ export default function AdminProductsList(props) {
                     <div>
                         <h2>ALL PRODUCTS</h2>                       
                     </div>
-                    <div className="flex-2">
-                      <div className="fetch-button">
-                          <button>DATA FROM API</button>
-                    </div>
-                    </div>
                 </div>
                 <div className="all-products-wrapper">
                   <div className="product-title-wrapper">

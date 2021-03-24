@@ -12,7 +12,6 @@ const fromEuroToCent = amount => amount * 100
 
 const Checkout = (props) => {
     const params = props.location.state
-    console.log(params)
     const history = useHistory();
 
     const successPayment = data => {
@@ -39,7 +38,7 @@ const Checkout = (props) => {
     
 
 
- return  (
+    return  (
             <div className="checkout-wrapper">
                 <h3>Your Order Summary</h3>
                 <div className="order-summary-label">
@@ -48,7 +47,7 @@ const Checkout = (props) => {
                 <div className="order-summary-wrapper">
                     <div className="product-checkout-wrapper">
                     {params.cartList.map(el=> {
-                        return <div key={el.id} className="product-checkout">
+                        return <div key={el._id} className="product-checkout">
                             <div>
                                 <img src={el.image} alt={el.title} />
                             </div>  
@@ -81,9 +80,9 @@ const Checkout = (props) => {
                         <button className="back-to-cart" onClick={() => {history.goBack(); }}>Back to Cart</button>
                     </div>
                 </div>             
-           </div>     
+        </div>     
 
- )   
-}
+        )   
+    }
 
 export default Checkout;

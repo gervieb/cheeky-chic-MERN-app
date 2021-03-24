@@ -5,8 +5,8 @@ export default function SearchProduct() {
 
     return (
         <div className="searchProd">
-                <BiSearch/>
-                <input type="text" name="searchProduct" placeholder="Search Products"></input>
+            <BiSearch/>
+            <input type="text" name="searchProduct" placeholder="Search Products"></input>
         </div>
     )
 }

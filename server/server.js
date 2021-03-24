@@ -1,15 +1,15 @@
-const express = require('express'),
-          app = express(),
-     mongoose = require('mongoose'),
-   bodyParser = require('body-parser'),
-   pk_test    = require('./config.js'),  
-    stripe    = require('stripe')(pk_test.pk),
-         port = process.env.port || 4001;
-     mongoUN  = require('./config.js').mongoUN
-     mongoPW  = require('./config.js').mongoPW
-     require('dotenv').config();
-     cors       = require('cors')
-     
+const express = require('express');
+const app = express();
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const pk_test = require('./config.js');  
+const stripe  = require('stripe')(pk_test.pk);
+const port = process.env.port || 4001;
+const mongoUN  = require('./config.js').mongoUN;
+const mongoPW  = require('./config.js').mongoPW;
+require('dotenv').config();
+const cors = require('cors');    
+    
 app.use(cors())
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
@@ -59,7 +59,7 @@ app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname, '../client/build')));
 
 app.get('/*', function (req, res) {
-  res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+    res.sendFile('../client/build/index.html' , { root: __dirname});
 });
  
 app.listen(port, () => 

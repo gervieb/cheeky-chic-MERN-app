@@ -4,6 +4,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 export default function ItemInCart(props) {
   const { cartItem, onAdd, onRemove, handleRemoveFromCart } = props;
 
+  
   return (
     <tbody>
       <tr key={cartItem.id}>

@@ -20,16 +20,19 @@ export default function Home({ productData }) {
   } 
 
   return (
-    <div className="featured-products">
-      <div>
+    <div className="featured-products">    
         <Carousel>
           {data.map((el, id) => (
-            <img key={id} src={el.image} alt={el.title} style={style} />
+            <div key={id}>
+              <img src={el.image} alt={el.title} style={style} /> 
+              <Link to="/products"><p className="shop-now">Shop Now</p></Link>
+                <div className="tagline">
+                  <p>DISCOVER & SHOP</p>
+                  <p>THE TREND</p>  
+                </div>         
+            </div>
           ))}
         </Carousel>
-      </div>
-        <p className="tagline">DISCOVER & SHOP THE TREND</p>
-      <Link to="/products"><p className="shop-now">Shop Now</p></Link>
     </div>
   );
 }
