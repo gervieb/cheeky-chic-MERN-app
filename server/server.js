@@ -33,6 +33,7 @@ async function connecting(){
 
 connecting()  
 mongoose.set('useCreateIndex', true);
+mongoose.set('useFindAndModify', false); 
 
 postStripeCharge = res => (stripeErr, stripeRes) => {
     if (stripeErr) {

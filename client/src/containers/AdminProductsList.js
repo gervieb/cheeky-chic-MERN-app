@@ -66,7 +66,7 @@ export default function AdminProductsList(props) {
               newTitle      : productDetails.title,
               newPrice      : productDetails.price,
               newDescription: productDetails.description,
-              id            : productDetails.id,
+              id            : productDetails._id,
               newImage      : productDetails.image
               })
               alert('product updated')    

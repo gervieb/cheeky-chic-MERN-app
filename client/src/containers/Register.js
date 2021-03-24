@@ -2,6 +2,7 @@ import React , { useState } from 'react'
 import { customInstance as axios } from '../config.js' 
 
 const Register = () => {
+	const [passwordShown, setPasswordShown] = useState(false);
 	const [form , setValues] = useState({
 		email    	: '',
 		password 	: '',
@@ -30,8 +31,11 @@ const Register = () => {
       debugger
 			console.log(error)
 		}
-
 	}
+
+	const togglePasswordVisiblity = () => {
+		setPasswordShown(passwordShown ? false : true);
+	};
 
 	return (
 			<div className="container">
@@ -44,9 +48,13 @@ const Register = () => {
 				<label>Email *</label>
 				<input name="email"/><br />
 				<label>Password *</label>
-				<input name="password"/><br />
+				<input type={passwordShown? "text": "password"} name="password"/><br />
 				<label>Repeat password *</label>
-				<input name="password2"/>
+				<input type={passwordShown? "text": "password"} name="password2"/>
+				<div className="toggle-password">
+					<input type="checkbox" onClick={togglePasswordVisiblity}/>
+					<p>Show Password</p>
+				</div>
 				<button type="submit">REGISTER</button>
 			</form>
 		   </div>

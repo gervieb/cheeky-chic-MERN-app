@@ -38,7 +38,7 @@ const handleSubmit=(e)=> {
                 <form className="contact" onSubmit={handleSubmit}>
                     <h1>GET IN TOUCH</h1>
                     <p>Got a question? We'd love to hear from you.
-                        Send us a message and we'll respond as soon ass possible.
+                        Send us a message and we'll respond as soon as possible.
                     </p>
                     <div className="flex-input">
                         <input required={true} type="text" name="name" placeholder="Your Name"/>

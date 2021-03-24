@@ -5,7 +5,7 @@ const productsSchema = new Schema({
     description:{type:String, unique: false, required: true},
     price:{type:Number, unique: false, required: true},
     image:{type:String, unique: false, required: true},
-    id:{type:String, unique: false, required: false},
+    // id:{type:String, unique: false, required: false},
     category: {type: String, required: true},
     categoryID:{type:mongoose.Types.ObjectId, ref:'Categories'},
 });

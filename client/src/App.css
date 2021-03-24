@@ -49,6 +49,21 @@ body {
   color: rgb(0, 99, 177)
 }
 
+/* .searchbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.searchbar input {
+  font-size: small;
+}
+
+.searchbar input,
+a {
+  margin-left: 1em;
+} */
+
 .search-bar {
   width: 120px;
   height: 8px;
@@ -119,14 +134,24 @@ body {
   justify-content: center;
   align-items: center;
   margin: auto;
-  border: 1px solid grey;
   border-radius: 12px;
   width: 350px;
   outline: black;
+  box-shadow: rgb(136 165 191 / 48%) 6px 2px 16px 0px, rgb(255 255 255 / 80%) -6px -2px 16px 0px;
 }
 
 .form-container h2 {
   margin-bottom: 50px;
+}
+
+.toggle-password {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toggle-password p {
+  padding-left: 5px;
 }
 
 input {
@@ -429,6 +454,7 @@ span {
 
 .cart-wrapper {
   margin-top: 3%;
+  margin-bottom: 10%;
 }
 
 .cost-container {
@@ -555,10 +581,27 @@ span {
   cursor: pointer;
 }
 
+.shop-now-button {
+  text-decoration: none;
+}
+
+.shop-now-label {
+  letter-spacing: 1px;
+  padding: 7px 15px 7px 15px;
+  background-color: rgb(255, 145, 0);
+  color: white;
+  outline: none;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer; 
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* === checkout page === */
 
 .checkout-wrapper {
-  height: 700px;
   margin-top: 40px;
 }
 
@@ -600,6 +643,7 @@ span {
   display: grid;
   grid-template-columns: 60% 40%;
   margin: 20px;
+  grid-gap: 1em;
 }
 
 .product-checkout div > img {
@@ -609,7 +653,7 @@ span {
 }
 
 .product-checkout > div > p {
-  text-align: justify;
+  text-align: left;
 }
 
 .total-right-div {
@@ -1075,6 +1119,7 @@ div.clear {
   font-family: sans-serif;
   font-size: 16px;
   margin: 15px;
+  text-align: left;
 }
 
 .delete-category {
@@ -1799,6 +1844,10 @@ footer div > a {
   .about-container {
     padding-top: 20px;
   }
+
+  .search-bar-wrapper a {
+    margin-left: 0.5em;
+  }
 }
 
 @media only screen and (max-width: 560px) {
@@ -1806,13 +1855,13 @@ footer div > a {
     font-size: 18px;
   }
 
-  .searchbar input {
+  /* .searchbar input {
     padding: 5px 5px;
-  }
+  } */
 
-  .searchbar input, .searchbar a {
+  /* .searchbar input, .searchbar a {
     margin-left: 0.5em;
-  }
+  } */
 
   .show-product-form .form-wrapper {
     width: 70%;
@@ -1844,6 +1893,10 @@ footer div > a {
     grid-template-columns: 100%;
     margin-top: 40px;
     margin-bottom: 40px;
+  }
+
+  .login input {
+    width: 70%;
   }
 }
 
@@ -1915,7 +1968,7 @@ footer div > a {
   }
 
   input {
-    width: 80%;
+    width: 70%;
     font-size: small;
     padding: 8px;
   }

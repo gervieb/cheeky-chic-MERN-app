@@ -1,6 +1,8 @@
 import React from "react";
 import ItemInCart from "./ItemInCart";
 import { Link } from 'react-router-dom'
+import shoppingCart from '../images/cart.png'
+
 
 export default function Cart(props) {
   const { cartlength, handleRemoveFromCart, onAdd, onRemove, cart } = props;
@@ -20,7 +22,11 @@ export default function Cart(props) {
 
   return (
     <div className="cart-wrapper"> 
-      {cartlength === 0 ? (<p>Your shopping basket is empty</p>): 
+      {cartlength === 0 ? <>
+      <img src={shoppingCart} alt="empty shopping cart" />
+      <p>Your shopping cart is empty.</p>
+      <Link to="/products" className="shop-now-button"><h5 className="shop-now-label">ADD NOW</h5></Link>
+      </>: 
       (<div className="cart-flex">
         <div className="cart">
           <div className="cart-title"> 

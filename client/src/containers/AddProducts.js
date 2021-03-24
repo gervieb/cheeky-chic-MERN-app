@@ -4,6 +4,7 @@ import UploadImages from './UploadImages'
 
 export default function AddProducts(props) {
   const {productDetails, setProductDetails} = props
+  const {isError, setIsError} = useState(false)
   const [message, setMessage] = useState('')
     const [categoryList, setCategoryList] = useState([]);
 
@@ -40,8 +41,10 @@ export default function AddProducts(props) {
                   image       : productDetails.image,
                   category    : productDetails.category,
               })
+              console.log(response.data.error.message)
               response.status.ok?         
               alert(`${productDetails.title} is added to your products`):
+              setIsError(true)
               setMessage(response.data.error.message)
               
       }
@@ -124,7 +127,7 @@ export default function AddProducts(props) {
             <div className="clear">         
               <button type="submit">Add product</button>   
             </div>
-            <p className="add-products-error-message">{message}</p>
+            {isError? <p className="add-products-error-message">{message}</p> : null}
         </form>
     )
 }

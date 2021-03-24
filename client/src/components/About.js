@@ -4,7 +4,7 @@ export default function About() {
     return (
         <div className="about-container">
             <h1>ABOUT US</h1>
-                <p>Welcome to <strong>Cheeky-Chic</strong>, your number one source for all things: <i>shoes, bags, clothes, electronics and accessories</i>. 
+                <p>Welcome to <strong>Cheeky-Chic</strong>, your number one source for all things: <i>shoes, bags, clothes and accessories</i>. 
                 We're dedicated to giving you the very best of our products, with a focus on dependability, 
                 customer service and uniqueness. Founded in 2021 by GB, cheeky-chic has come a long way from its beginnings in a home office. 
                 When GB first started out, her passion for providing the best quality for her fellow fashionista drove her to quit her day job.

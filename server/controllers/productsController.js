@@ -47,17 +47,6 @@ class ProductsController {
             res.send({error})
         }
     }
-
-    async createFromAPI (req, res) {
-        let { title, description, price, image, category, id} = req.body;
-        try{
-            const addProduct = await Products.create({title, description, price, image, category, id });
-            res.status(200).send({addProduct})
-        }
-        catch(error){
-            res.send({error})
-        }
-    }
     
     async delete (req, res){
         let id = req.body.product_id;
@@ -73,14 +62,14 @@ class ProductsController {
     async update (req, res){
         let { newTitle, newPrice, newDescription, newImage, id } = req.body;
         try{
-            const oldProduct = await Products.findOne({id:id})
+            const oldProduct = await Products.findOne({_id:id})
             const updateProduct = await Products.updateOne(
-                {id:id },{$set:{
+                {_id:id },{$set:{
                             title:newTitle || oldProduct.title, 
                             price:newPrice || oldProduct.price,
                             description:newDescription || oldProduct.description, 
                             image: newImage || oldProduct.image,
-                            id: id || oldProduct._id
+                            _id: id || oldProduct._id
                         }
             });
             res.status(200).send({updateProduct});

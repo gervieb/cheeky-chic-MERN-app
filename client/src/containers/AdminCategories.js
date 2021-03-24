@@ -69,13 +69,11 @@ export default function AdminCategories() {
     }
 
     const updateCategory = async () => {
-        console.log('you clicked')
         try{
-          const response =  await axios.post(`/categories/update`, {
+           await axios.post(`/categories/update`, {
                     id    : newCatDetails._id,
             newCategory   : newCatDetails.newCategory
-                })
-                console.log(response.data)               
+                })            
         }
         catch( error ){
           console.log(error)

@@ -5,12 +5,14 @@ import { SidebarData } from './SidebarData'
 import MenuIcon from '@material-ui/icons/Menu';
 import CancelIcon from '@material-ui/icons/Cancel';
 
-export default function Sidebar() {
+export default function Sidebar({isAdmin}) {
     const [sidebar, setSidebar] = useState(false)
 
     const showSidebar=()=> setSidebar(!sidebar)
 
     return (<div className='sidebar-wrapper'>
+        {isAdmin?
+        <>
                 <AdminHeader /> 
                 <div className="admin-sidebar">  
                     <nav className='sidebar-menu active'>                                     
@@ -52,6 +54,7 @@ export default function Sidebar() {
                             })}
                         </ul>
                     </nav>
-                </div>              
+        </> : null}
+            </div>           
     )
 }
