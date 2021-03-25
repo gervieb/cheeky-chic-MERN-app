@@ -14,7 +14,7 @@ export default function Header({cartlength, isLoggedIn }) {
             </Link> 
             <div className="search-bar-wrapper">
                 <BsSearch />
-                <input className="search-bar" type="text" placeholder="Search"></input>              
+                <input className="search-bar" placeholder="Search"></input>              
                 <Link to={"/cart"}>
                     <div className="cart-icon">
                         <ShoppingCartIcon />  

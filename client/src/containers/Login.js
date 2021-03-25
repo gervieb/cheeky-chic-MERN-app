@@ -55,7 +55,7 @@ return (
 			<form className="form-container login" onSubmit={handleSubmit} onChange={handleChange}>
 			<h2>LOGIN</h2>
 			<label>Email *</label>    
-			<input required={true} name="email"/><br />
+			<input type="text" required={true} name="email"/><br />
 			<label>Password *</label>
 			<input required={true} type={passwordShown? "text": "password"} name="password"/><br />
 			<div className="toggle-password">

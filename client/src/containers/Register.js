@@ -42,11 +42,11 @@ const Register = () => {
 				<form className="form-container register" onSubmit={handleSubmit} onChange={handleChange}>
 				<h2>CREATE YOUR ACCOUNT</h2>
 				<label>First Name *</label>
-				<input name="firstName"/><br />
+				<input type="text"name="firstName"/><br />
 				<label>Last Name *</label>
-				<input name="lastName"/><br />
+				<input type="text"name="lastName"/><br />
 				<label>Email *</label>
-				<input name="email"/><br />
+				<input type="text" name="email"/><br />
 				<label>Password *</label>
 				<input type={passwordShown? "text": "password"} name="password"/><br />
 				<label>Repeat password *</label>

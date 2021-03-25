@@ -146,6 +146,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 80%;
 }
 
 .toggle-password p {
@@ -1746,12 +1747,6 @@ footer div > a {
   .carousel .slider-wrapper {
     height: auto !important;
   } 
-
-  /* .tagline {
-    font-size: 10vw;
-    width: 340px;
-    left: 20px;
-  } */
 }
 
 @media only screen and (max-width: 600px) {
@@ -1823,14 +1818,6 @@ footer div > a {
     font-size: 18px;
   }
 
-  /* .searchbar input {
-    padding: 5px 5px;
-  } */
-
-  /* .searchbar input, .searchbar a {
-    margin-left: 0.5em;
-  } */
-
   .show-product-form .form-wrapper {
     width: 70%;
   }
@@ -1863,7 +1850,7 @@ footer div > a {
     margin-bottom: 40px;
   }
 
-  .login input {
+  .login input[type="text"], .login input[type="password"] {
     width: 70%;
   }
 }
@@ -1935,7 +1922,7 @@ footer div > a {
     margin-top: 10px;
   }
 
-  input {
+  input[type="text"], input[type="email"] {
     width: 70%;
     font-size: small;
     padding: 8px;
