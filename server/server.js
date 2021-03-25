@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const pk_test = require('./config.js');  
 const stripe  = require('stripe')(pk_test.pk);
-const port = process.env.port || 4001;
+const port = process.env.port || 8080;
 const mongoUN  = require('./config.js').mongoUN;
 const mongoPW  = require('./config.js').mongoPW;
 require('dotenv').config();
@@ -46,7 +46,7 @@ app.use('/users', require('./routes/usersRoute'));
 app.use('/emails', require('./routes/emailsRoute'))
 app.use('/categories', require('./routes/categoriesRoute'))
 app.use('/products', require('./routes/productsRoute'))
-app.use('/', require('./routes/index'))
+// app.use('/', require('./routes/index'))
 app.post('/payment', function(req, res){
     stripe.charges.create(req.body, postStripeCharge(res))
 })
