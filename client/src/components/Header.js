@@ -13,7 +13,7 @@ export default function Header({cartlength, isLoggedIn }) {
                 <h1 className="shop-title">Cheeky-Chic</h1>
             </Link> 
             <div className="search-bar-wrapper">
-                <BsSearch />
+                <BsSearch className="search-bar-icon"/>
                 <input className="search-bar" placeholder="Search"></input>              
                 <Link to={"/cart"}>
                     <div className="cart-icon">

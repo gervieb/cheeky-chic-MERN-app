@@ -164,7 +164,7 @@ export default function App() {
                     <>
                       <div className="sticky">
                         <Header cartlength={cart.length} isLoggedIn={isLoggedIn}/>
-                        <Navbar isAdmin={isAdmin} />
+                        <Navbar isAdmin={isAdmin}/>
                       </div>  
                         <Route exact path="/" 
                             render = {props =>(<Home isLoggedIn={isLoggedIn} setCart={setCart} cart={cart} productData={productData} {...props} />)} />  
@@ -218,7 +218,7 @@ export default function App() {
                     <>
                       <div className="sticky">
                         <Header cartlength={cart.length} isLoggedIn={isLoggedIn}/>
-                        <Navbar isAdmin={isAdmin} />
+                        <Navbar isAdmin={isAdmin}/>
                       </div> 
                         <Route exact path="/" 
                             render = {props =>(<Home isLoggedIn={isLoggedIn} setCart={setCart} cart={cart} productData={productData} {...props} />)} />  

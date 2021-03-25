@@ -103,11 +103,7 @@ export default function AdminProductsList(props) {
     return (
         <div className="admin-product-wrapper">
             <div>
-                <div className="products-flex">
-                    <div>
-                        <h2>ALL PRODUCTS</h2>                       
-                    </div>
-                </div>
+                <h1>ALL PRODUCTS</h1>                       
                 <div className="all-products-wrapper">
                   <div className="product-title-wrapper">
                     <div className="products-grid-5 title">
@@ -125,7 +121,7 @@ export default function AdminProductsList(props) {
                           <img className="product-img" src={el.image} alt={el.title} />
                           <p><i>{el.title}</i></p>
                         </div>
-                        <h5>{el.category}</h5>
+                        <p><strong>{el.category}</strong></p>
                         <p>{el._id}</p>
                         <p>€{el.price}</p>
                         <div className="action">
