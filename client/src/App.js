@@ -30,7 +30,7 @@ export default function App() {
   const [productData, setProductData] = useState([]);
   const [cart, setCart] = useState([]);
   const [isAddedToCart, setIsAddedToCart] = useState(false)
-  const [itemAddedToCart, setitemAddedToCart] = useState({})
+  const [itemAddedToCart, setItemAddedToCart] = useState({})
   const [isAdmin, setIsAdmin] = useState(false);
   const [productDetails, setProductDetails] = useState({
     title: '',
@@ -45,6 +45,7 @@ export default function App() {
   const token = JSON.parse(localStorage.getItem('token'));
   const storageCart = JSON.parse(localStorage.getItem('cart-list'));
   const user = JSON.parse(localStorage.getItem('user-data'));
+  const cartLength = cart.reduce((sum, curr) => sum = sum + curr.qty, 0)
 
   useEffect(() => {
     verify_token();
@@ -65,7 +66,8 @@ export default function App() {
 
   useEffect(() => {
     localStorage.setItem('cart-list', JSON.stringify(cart));
-  }, [cart]);
+  }, [cart]); 
+
 
   useEffect(() => {
     setProductDetails({
@@ -133,11 +135,11 @@ export default function App() {
         )
       );
       setIsAddedToCart(true)
-      setitemAddedToCart(item)
+      setItemAddedToCart(item)
     } else {
       setCart([...cart, { ...item, qty: 1 }]);
       setIsAddedToCart(true)
-      setitemAddedToCart(item)
+      setItemAddedToCart(item)
     }
   };
 
@@ -158,12 +160,13 @@ export default function App() {
     setCart(cart.filter((product) => product._id !== productId));
   };
 
+
   return  (            
               <Router>  
                     {!isAdmin && isLoggedIn?
                     <>
                       <div className="sticky">
-                        <Header cartlength={cart.length} isLoggedIn={isLoggedIn}/>
+                        <Header cartLength={cartLength} isLoggedIn={isLoggedIn}/>
                         <Navbar isAdmin={isAdmin}/>
                       </div>  
                         <Route exact path="/" 
@@ -188,7 +191,7 @@ export default function App() {
                             render={(props) => (
                               <Cart
                                 {...props}
-                                cartlength={cart.length}
+                                cartLength={cartLength}
                                 handleRemoveFromCart={handleRemoveFromCart}
                                 onAdd={onAdd}
                                 onRemove={onRemove}
@@ -217,7 +220,7 @@ export default function App() {
                     </>: 
                     <>
                       <div className="sticky">
-                        <Header cartlength={cart.length} isLoggedIn={isLoggedIn}/>
+                        <Header cartLength={cartLength} isLoggedIn={isLoggedIn}/>
                         <Navbar isAdmin={isAdmin}/>
                       </div> 
                         <Route exact path="/" 
@@ -241,7 +244,7 @@ export default function App() {
                             render={(props) => (
                               <Cart
                                 {...props}
-                                cartlength={cart.length}
+                                cartLength={cartLength}
                                 handleRemoveFromCart={handleRemoveFromCart}
                                 onAdd={onAdd}
                                 onRemove={onRemove}

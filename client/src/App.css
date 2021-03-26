@@ -478,6 +478,10 @@ span {
   margin-bottom: 10%;
 }
 
+.cart-items-div {
+  width: 100%;
+}
+
 .cost-container {
   display: flex;
   justify-content: space-evenly;
@@ -502,10 +506,6 @@ span {
   align-items: center;
   margin: 0 5%;
 }
-
-/* .grid2-checkout img {
-  padding-right: 20px;
-} */
 
 .checkout-product {
   margin-top: 0;
@@ -570,8 +570,8 @@ span {
 
 .cart-title {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: flex-start;
+  margin-left: 40px;
 }
 
 .total-cost {
@@ -613,7 +613,8 @@ span {
 /* === checkout page === */
 
 .checkout-wrapper {
-  margin-top: 40px;
+  margin-top: 80px;
+  margin-bottom: 80px;
 }
 
 .pay-div {

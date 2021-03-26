@@ -5,7 +5,9 @@ import { Link } from 'react-router-dom'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 
-export default function Header({cartlength, isLoggedIn }) {
+export default function Header({cartLength, isLoggedIn }) {
+
+    
 
     return (
         <div className="header-container"> 
@@ -18,7 +20,7 @@ export default function Header({cartlength, isLoggedIn }) {
                 <Link to={"/cart"}>
                     <div className="cart-icon">
                         <ShoppingCartIcon />  
-                        <span className="basketCount">{cartlength}</span>  
+                        <span className="basketCount">{cartLength}</span>  
                     </div>           
                 </Link>
                 {!isLoggedIn?
