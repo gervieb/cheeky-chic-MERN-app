@@ -30,11 +30,6 @@ img {
   height: auto;
 }
 
-/* .MuiSvgIcon-root {
-  width: 1.2em !important;
-  height: 1.2em !important;
-} */
-
 /*==== header ====*/ 
 
 .header-container {
@@ -1801,6 +1796,18 @@ footer div > a {
   .products-grid-5 {
     grid-column-gap: 1em;
   }
+
+  .total-price h3 {
+    padding-top: 0; 
+  }
+
+  .total-cost {
+    padding-top: 30px;
+  }
+
+  .total-price a {
+    font-size: 12px;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -2090,10 +2097,6 @@ footer div > a {
 
   .cart-title h3, .total-price h3 {
     font-size: medium;
-  }
-
-  .total-price a {
-    font-size: 12px;
   }
 
   .remove svg {
