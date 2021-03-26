@@ -142,20 +142,20 @@ export default function App() {
   };
 
   const onRemove = (item) => {
-    const exist = cart.find((cartItem) => cartItem.id === item.id);
+    const exist = cart.find((cartItem) => cartItem._id === item._id);
     if (exist.qty === 1) {
-      setCart(cart.filter((cartItem) => cartItem.id !== item.id));
+      setCart(cart.filter((cartItem) => cartItem._id !== item._id));
     } else {
       setCart(
         cart.map((cartItem) =>
-          cartItem.id === item.id ? { ...exist, qty: exist.qty - 1 } : cartItem
+          cartItem._id === item._id ? { ...exist, qty: exist.qty - 1 } : cartItem
         )
       );
     }
   };
 
   const handleRemoveFromCart = (productId) => {
-    setCart(cart.filter((product) => product.id !== productId));
+    setCart(cart.filter((product) => product._id !== productId));
   };
 
   return  (            

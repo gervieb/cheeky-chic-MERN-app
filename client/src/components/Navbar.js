@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { BsSearch } from 'react-icons/bs'
 import { NavLink } from 'react-router-dom'
 import MenuIcon from '@material-ui/icons/Menu';
-import HamburgerNav from '../containers/HamburgerNav';
+import HamburgerNav from './HamburgerNav';
 
 export default function Navbar() {
     const [navbar, setNavbar] = useState(false)

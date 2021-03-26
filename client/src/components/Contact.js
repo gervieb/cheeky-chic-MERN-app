@@ -24,7 +24,6 @@ const handleSubmit=(e)=> {
             subjectInput.value = ""
             messageInput.value = ""
 			alert("Your message has been sent, thanks!")
-            console.log(response)
 		})
 		.catch(function (error) {
 			console.log(error);
