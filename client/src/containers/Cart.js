@@ -2,10 +2,11 @@ import React from "react";
 import ItemInCart from "./ItemInCart";
 import { Link } from 'react-router-dom'
 import shoppingCart from '../images/cart.png'
+import { BsArrowRight } from 'react-icons/bs'
 
 
 export default function Cart(props) {
-    const { cartLength, handleRemoveFromCart, onAdd, onRemove, cart } = props;
+    const { cartLength, handleRemoveFromCart, onAdd, onRemove, cart} = props;
     const price = cart.reduce((acc, curr) => acc + curr.price * curr.qty, 0);
     const shippingFee = 14;
     const totalPrice = price + shippingFee;
@@ -35,7 +36,13 @@ export default function Cart(props) {
             <div className="cart">
               <div className="cart-title"> 
                 {cartLength > 1? <h3>Cart ({cartLength} items)</h3>:
-                <h3>Cart ({cartLength} item)</h3>}
+                <h3>Cart ({cartLength} item)</h3>}                
+                  <Link to="/products" >
+                    <div className="continue-shop">
+                      <p>Continue Shopping</p>
+                      <BsArrowRight />
+                    </div>   
+                  </Link>                          
               </div>
               <table id="cart">
                 <thead>
@@ -65,17 +72,30 @@ export default function Cart(props) {
                     <p>TOTAL PRICE</p>
                     <p><strong>€{totalPrice}</strong></p>
                   </div> 
+                  {props.isLoggedIn?               
                   <Link to={{ 
                     pathname: "/checkout",
                     state: {
                       name: 'Payment Test Mode',
-                      description: 'Please enter your details',
+                      description: 'Please enter your card details',
                       label: 'PAY',
                       amount: totalPrice,
                       cartList: cart                   
                       }
                     }}>CHECKOUT
-                </Link>
+                  </Link>:
+                  <Link to={{ 
+                    pathname: "/guest-form",
+                    state: {
+                      name: 'Payment Test Mode',
+                      description: 'Please enter your card details',
+                      label: 'PAY',
+                      amount: totalPrice,
+                      cartList: cart                   
+                      }
+                    }}>CHECKOUT
+                  </Link>
+                  }     
               </div> 
             </div>
             )}
