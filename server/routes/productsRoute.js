@@ -10,8 +10,6 @@ router.get('/products_by_category/:categoryID', controller.findByCategory);
 
 router.post('/create', controller.create);
 
-// router.post('/createFromAPI', controller.createFromAPI);
-
 router.post('/delete', controller.delete);
 
 router.post('/update', controller.update);
