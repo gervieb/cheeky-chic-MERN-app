@@ -11,8 +11,19 @@ const fromEuroToCent = amount => amount * 100
 
 export default function Checkout (props) {
     const [showForm, setShowForm] = useState(false)
-    const [guestDetails, setGuestDetails] = useState({})
     const [amount, setAmount] = useState(0)
+    const [guestDetails, setGuestDetails] = useState({
+                firstName 	: " ",
+				lastName	: " ",
+				email    	: " ",
+				phone		: " ",
+				street 		: " ",
+				address2	: " ",
+				city 		: " ",
+				postcode 	: " ",
+				state 		: " ",
+                country 	: " "
+    })
     const shippingFee = 14;
     const totalAmount = amount + shippingFee
 
@@ -30,14 +41,15 @@ export default function Checkout (props) {
         alert('Payment successful')
 
         try{
-            const response = await axios.post('/emails/confirmation_email', {
-                data: guestInfo,
-                total: amount,
-                cart: guestCart
+            await axios.post('/emails/confirmation_email', {
+                data: guestDetails,
+                total: totalAmount,
+                cart: props.storageCart
                 })
-            console.log(response)
                 props.setCart([])
                 localStorage.removeItem('cart-list');
+                sessionStorage.removeItem('guest-data');
+                localStorage.removeItem('total-amount');
                 props.history.push('/order-confirmation')
         }catch(error){
             console.log(error)
