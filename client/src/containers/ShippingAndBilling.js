@@ -68,7 +68,7 @@ export default function ShippingAndBilling(props) {
                         <p>{user.state} {user.country} </p>
                         <p>Phone: {user.phone}</p>                               
                     </div>
-                    <button type="submit" className="save-edit shipping-continue-button" >Continue</button>
+                    <button type="submit" className="save-edit shipping-continue-button" onClick={saveUserShipping}>Continue</button>
                 </div>
 
                 <form onSubmit={saveUserShipping} className={showShippingData? "shipping-form-hidden": "shipping-billing-active"}>  
