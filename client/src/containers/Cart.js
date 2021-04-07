@@ -10,8 +10,8 @@ export default function Cart(props) {
     const price = cart.reduce((acc, curr) => acc + curr.price * curr.qty, 0);
     const shippingFee = 14;
     const totalPrice = price + shippingFee;
-    
 
+  
     const renderCart = cart.map((item, idx) => (
       <ItemInCart
         key={idx}
@@ -21,7 +21,10 @@ export default function Cart(props) {
         handleRemoveFromCart={handleRemoveFromCart}
       />
     ));
-    
+
+    const saveTotalAmount =()=> {
+      localStorage.setItem('total-amount', JSON.stringify(price));
+    }
 
     return (
       <div className="cart-wrapper"> 
@@ -73,28 +76,8 @@ export default function Cart(props) {
                     <p><strong>€{totalPrice}</strong></p>
                   </div> 
                   {props.isLoggedIn?               
-                  <Link to={{ 
-                    pathname: "/checkout",
-                    state: {
-                      name: 'Payment Test Mode',
-                      description: 'Please enter your card details',
-                      label: 'PAY',
-                      amount: totalPrice,
-                      cartList: cart                   
-                      }
-                    }}>CHECKOUT
-                  </Link>:
-                  <Link to={{ 
-                    pathname: "/guest-form",
-                    state: {
-                      name: 'Payment Test Mode',
-                      description: 'Please enter your card details',
-                      label: 'PAY',
-                      amount: totalPrice,
-                      cartList: cart                   
-                      }
-                    }}>CHECKOUT
-                  </Link>
+                  <Link to={'/shipping-and-billing'} onClick={saveTotalAmount}>CHECKOUT</Link>:
+                  <Link to={'/checkout-method'} onClick={saveTotalAmount}>CHECKOUT</Link>
                   }     
               </div> 
             </div>
