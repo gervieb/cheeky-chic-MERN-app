@@ -2,7 +2,18 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function GuestForm(props) {
-  const [guestForm, setGuestForm] = useState({})
+  const [guestForm, setGuestForm] = useState({
+        firstName : " ",
+				lastName	: " ",
+				email    	: " ",
+				phone		  : " ",
+				street 		: " ",
+				address2	: " ",
+				city 	  	: " ",
+				postcode 	: " ",
+				state 		: " ",
+        country 	: " "
+  })
 
   const handleChange = (e) => {
     setGuestForm({ ...guestForm, [e.target.name]: e.target.value });
