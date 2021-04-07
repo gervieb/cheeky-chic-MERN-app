@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import userIcon from '../images/user-profile-icon.png'
 import { HashLink as Link } from 'react-router-hash-link'
 
-export default function UsersProfile({ user, billingDetails, setBillingDetails }) {
+export default function UsersProfile() {
+    const [userData, setUserData] = useState({})
 
-    const handleBilling = e => {
-        setBillingDetails({ ...billingDetails, [e.target.name]:e.target.value })
-   }
-
+    useEffect(() => {
+        const user = JSON.parse(localStorage.getItem('user-data'));
+        setUserData(user)
+    }, [])
+    
 
     return (
         <div className="users-profile-wrapper"> 
@@ -18,7 +20,7 @@ export default function UsersProfile({ user, billingDetails, setBillingDetails }
             <div>
                 <div className="username-wrapper" >  
                         <img src={userIcon} alt="user icon" id="personal-details"/>
-                        <h2 className="username">{user.firstName} {user.lastName}</h2>
+                        <h2 className="username">{userData.firstName} {userData.lastName}</h2>
                 </div>                
                 <div className="user-information">
                     <div className="personal-details">
@@ -26,52 +28,23 @@ export default function UsersProfile({ user, billingDetails, setBillingDetails }
                             <h4>PERSONAL DETAILS</h4>
                             <h4 className="edit">EDIT</h4>
                         </div>                  
-                        <p><strong>First Name:</strong> {user.firstName} </p>
-                        <p><strong>Last Name:</strong> {user.lastName} </p>
-                        <p><strong>Email:</strong> {user.email} </p>
-                    </div>
-                    <hr />
-                    <div className="password-wrapper">
-                        <div className="user-label-flex">
-                            <h4>CHANGE PASSWORD</h4>
-                            <h4 className="edit">EDIT</h4>
-                        </div> 
-                        <form>
-                            <input required={true} name="oldPassword" placeholder="Old Password"/>
-                            <div className="new-password">
-                                <input required={true} name="newPassword" placeholder="New Password"/>
-                                <input required={true} name="NewPassword" placeholder="New Password"/>
-                            </div>
-                        </form>
+                        <p><strong>First Name:</strong> {userData.firstName} </p>
+                        <p><strong>Last Name:</strong> {userData.lastName} </p>
+                        <p><strong>Email:</strong> {userData.email} </p>
+                        <p><strong>Phone:</strong> {userData.phone} </p>
                     </div>
                     <hr />
                     <div className="billing-wrapper">
                         <div className="user-label-flex">
-                            <h4>BILLING DETAILS</h4>
+                            <h4>BILLING ADDRESS</h4>
                             <h4 className="edit">EDIT</h4>
-                        </div>                  
-                        <form onChange={handleBilling} className="billing-address">
-                            <div className="billing-details">
-                                <input required={true} name="firstName" placeholder="FirstName"/>
-                                <input required={true} name="lastName" placeholder="LastName"/>
-                            </div>
-                            <div className="billing-details">
-                                <input required={true} name="email" placeholder="Email"/>
-                                <input required={true} name="phone" placeholder="Mobile Number"/>
-                            </div>
-                            <div className="billing-details">
-                                <input required={true} name="street" placeholder="Street"/>
-                                <input required={true} name="houseNumber" placeholder="House/Building Number"/>
-                            </div>
-                            <div className="billing-details">
-                                <input required={true} name="city" placeholder="City/Town"/>
-                                <input required={true} name="zipCode" placeholder="Zip Code"/>
-                            </div>
-                            <div className="billing-details">
-                                <input required={true} name="state" placeholder="State"/>
-                                <input required={true} name="country" placeholder="Country"/>
-                            </div>                           
-                        </form>
+                        </div>    
+                            <p><strong>Street Address:</strong> {userData.street} </p>
+                            <p><strong>APARTMENT/SUITE # (optional):</strong> {userData.address2} </p>
+                            <p><strong>City:</strong> {userData.city} </p>
+                            <p><strong>Postcode:</strong> {userData.postcode} </p>
+                            <p><strong>State:</strong> {userData.state} </p>
+                            <p><strong>Country:</strong> {userData.country} </p>                      
                     </div>
                 </div>
                 <hr />
