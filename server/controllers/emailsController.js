@@ -54,10 +54,9 @@ class EmailsController {
         html: ` <h4>Hello ${data.firstName} ${data.lastName}, thank you for your order.</h4>
                 <p>We've received your order and will contact you as soon as your package is shipped.
                 You can find your purchase information below.</p>
-                <br /> <br />
+                <br />
                 <h3> Your Order Summary</h3>
-                ${cart.map(ele => ele.title 
-                )}
+                ${cart.map(ele => ele.title)}
                 <p>total price: ${total}€</p>`
     };
     transporter.sendMail(mailOptions, (error, info) => {
