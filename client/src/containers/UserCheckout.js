@@ -12,7 +12,18 @@ const fromEuroToCent = amount => amount * 100
 export default function UserCheckout (props) {
     const [showForm, setShowForm] = useState(false)
     const [amount, setAmount] = useState(0)
-    const [userShipping, setUserShipping] = useState({})
+    const [userShipping, setUserShipping] = useState({
+                firstName 	: " ",
+				lastName	: " ",
+				email    	: " ",
+				phone		: " ",
+				street 		: " ",
+				address2	: " ",
+				city 		: " ",
+				postcode 	: " ",
+				state 		: " ",
+                country 	: " "
+    })
     const shippingFee = 14;
     const totalAmount = amount + shippingFee
 
@@ -27,12 +38,24 @@ export default function UserCheckout (props) {
     }, [])
 
 
-    const successPayment = data => {
+    const successPayment = async() => {
         alert('Payment succesful')
-        console.log(data)
-        props.setCart([])
-        localStorage.removeItem('cart-list');
-        props.history.push('/order-confirmation')
+
+        try{
+            await axios.post('/emails/confirmation_email', {
+                data: userShipping,
+                total: totalAmount,
+                cart: props.storageCart
+                })
+                props.setCart([])
+                props.setCart([])
+                localStorage.removeItem('cart-list');
+                localStorage.removeItem('user-shipping');
+                localStorage.removeItem('total-amount');
+                props.history.push('/order-confirmation')
+        }catch(error){
+            console.log(error)
+        }        
     }
     
     const errorPayment = data => {
@@ -102,6 +125,7 @@ export default function UserCheckout (props) {
                         <div className="shipping-address shipping-grid2">
                                 <div>                   
                                     <h3 className="shipping-label">{userShipping.firstName} {userShipping.lastName}</h3>
+                                    <p>{userShipping.email}</p>
                                     <p>{userShipping.street} {userShipping.address2} </p>
                                     <p>{userShipping.city} {userShipping.postcode} </p>
                                     <p>{userShipping.state} {userShipping.country} </p>
