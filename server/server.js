@@ -2,8 +2,8 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const pk_test = require('./config.js');  
-const stripe  = require('stripe')(pk_test.pk);
+const pk_test = require('./config.js').pk;  
+const stripe  = require('stripe')(pk_test);
 const port = process.env.port || 8080;
 const mongoUN  = require('./config.js').mongoUN;
 const mongoPW  = require('./config.js').mongoPW;
@@ -46,11 +46,9 @@ app.use('/users', require('./routes/usersRoute'));
 app.use('/emails', require('./routes/emailsRoute'))
 app.use('/categories', require('./routes/categoriesRoute'))
 app.use('/products', require('./routes/productsRoute'))
-// app.use('/', require('./routes/index'))
 app.post('/payment', function(req, res){
     stripe.charges.create(req.body, postStripeCharge(res))
 })
-app.use("/assets", express.static(__dirname + "/public"));
 app.use('/pictures', require('./routes/picturesRoute'))
 
 const path = require('path');
