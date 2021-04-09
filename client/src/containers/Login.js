@@ -5,13 +5,13 @@ import { Link } from 'react-router-dom'
 
 const Login = (props) => {
 	const [passwordShown, setPasswordShown] = useState(false);
-	const [ form , setValues ] = useState({
+	const [ form , setForm ] = useState({
 		email    : '',
 		password : ''
 	})
 
 	const handleChange = (e) => {
-		setValues({...form,[e.target.name]:e.target.value})
+		setForm({...form,[e.target.name]:e.target.value})
 	}
 
 	const handleSubmit = async (e) => {

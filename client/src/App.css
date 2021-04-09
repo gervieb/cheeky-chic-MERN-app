@@ -788,19 +788,18 @@ span {
 /* === checkout page === */
 
 .checkout-wrapper {
-  margin-top: 80px;
-  margin-bottom: 80px;
+  margin-top: 60px;
+  margin-bottom: 100px;
 }
 
 .pay-div {
-  margin: 0 auto;
+  margin: 20px auto 40px auto;
   border: 1px solid black;
   width: 300px;
-  margin-bottom: 40px;
 }
 
 .order-summary-label {
-  width: 35%;
+  width: 40%;
   margin-left: 10%;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
@@ -814,12 +813,14 @@ span {
 }
 
 .order-summary-wrapper {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 60% 30%;
+  text-align: center;
+  margin-left: 5%;
 }
 
 .product-checkout-wrapper {
-  width: 35%;
+  width: 55%;
   display: flex;
   flex-direction: column;
   margin-left: 8%;
@@ -828,7 +829,7 @@ span {
 .product-checkout {
   display: grid;
   grid-template-columns: 60% 40%;
-  margin: 20px;
+  margin-top: 20px;
   grid-gap: 1em;
 }
 
@@ -865,11 +866,13 @@ span {
   padding-left: 110px;
 }
 
-.back-to-cart {
+.back {
   margin-top: 50px;
   color: rgb(0, 99, 177);
   padding: 5px 10px;
   width: 80px;
+  float: left;
+  margin-left: 10%;
 }
 
 .total-amount {
@@ -902,6 +905,7 @@ span {
 
 .shipping-details {
   margin-bottom: 20px;
+  margin-top: 40px;
 }
 
 .shipping-grid2 {
@@ -1010,6 +1014,7 @@ span {
   display: grid;
   grid-template-columns: 40% 60%;
   margin: 60px 10%;
+  gap: 1em;
 }
 
 .shipping-billing-wrapper p, .shipping-billing-wrapper h2, .shipping-billing-wrapper input {
@@ -1020,6 +1025,7 @@ span {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  margin-top: 30px;
 }
 
 .shipping-data-active {
@@ -1036,8 +1042,15 @@ span {
 }
 
 .shipping-billing-grid2 {
-    display: grid;
+  display: flex;
+  align-items: flex-start;
+    /* display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 1em; */
+}
+
+.shipping-billing-grid2 div{
+  margin-right: 1em;
 }
 
 .shipping-billing-grid2 h4, .shipping-billing-grid2 input, .shipping-billing-wrapper form {
@@ -1059,6 +1072,18 @@ span {
 .billing-shipping-continue {
   margin-top: 30px;
   float: right;
+}
+
+.billing-user-address p, .shipping-data-active p{
+  margin: 0;
+}
+
+.shipping-billing-wrapper input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.shipping-billing-grid2 h4 {
+  margin-bottom: 12px;
 }
 
 /* === guest form === */
@@ -1941,6 +1966,10 @@ footer div > a {
   .cart-flex {
     grid-template-columns: 75% 25%;
   }
+
+  .shipping-billing-wrapper form {
+    width: 100%;
+}
 }
 
 @media only screen and (max-width: 1200px) {
@@ -1999,6 +2028,14 @@ footer div > a {
   .product-wrapper img {
     width: 400px;
     height: 400px;
+  }
+
+  .order-summary-wrapper {
+    grid-template-columns: 60% 40%;
+  }
+
+  .product-checkout-wrapper {
+    width: 80%;
   }
 
 }
@@ -2120,6 +2157,19 @@ footer div > a {
 
   .cart-flex {
     margin: 5% 5%;
+  }
+
+  .shipping-billing-wrapper {
+    margin: 40px 5%;
+  }
+
+  .shipping-billing-wrapper h2 {
+    font-size: large;
+  }
+
+  .shipping-billing-wrapper input {
+    font-size: 12px;
+    padding: 10px;
   }
 }
 
@@ -2332,6 +2382,26 @@ footer div > a {
   .total-price a {
     font-size: 12px;
   }
+
+  .shipping-billing-wrapper {
+    width: 70%;
+    grid-template-columns: 100%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .billing-shipping-continue {
+    float: none; 
+  }
+
+  .shipping-data-active button {
+    margin-top: 40px;
+  }
+
+  .shipping-billing-grid2 h4 {
+    margin-bottom: 5px;
+  }
+
 }
 
 @media only screen and (max-width: 600px) {
@@ -2452,6 +2522,10 @@ footer div > a {
     width: 80px;
     height: 80px;
   }
+
+  .shipping-billing-wrapper {
+    width: 90%;
+  }
 }
 
 @media only screen and (max-width: 490px) {
@@ -2511,7 +2585,7 @@ footer div > a {
     margin-top: 10px;
   }
 
-  input[type="text"], input[type="email"] {
+  .contact input{
     width: 70%;
     font-size: small;
     padding: 8px;
@@ -2657,6 +2731,18 @@ footer div > a {
 
   #cart th {
     font-size: 12px;
+  }
+
+   .shipping-billing-grid2 {
+    flex-direction: column;
+  }
+
+  .shipping-billing-wrapper input {
+    padding: 8px;
+  }
+
+  .shipping-billing-wrapper {
+    width: 60%;
   }
 }
 

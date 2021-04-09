@@ -1,4 +1,4 @@
-const Products = require('../models/productsModel');
+const Products = require('../models/productsModel'); 
 
 class ProductsController {
   
@@ -78,7 +78,6 @@ class ProductsController {
             res.send({error});
         };
     }
-
 
 };
 module.exports = new ProductsController();

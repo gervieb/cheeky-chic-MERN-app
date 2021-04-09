@@ -177,7 +177,6 @@ export default function UserCheckout (props) {
                                     </form>  
                                 </div>                                                                     
                         </div>
-                        <button className="back-to-cart" onClick={() => {props.history.goBack(); }}>Back</button>
                     </div>  
 
                     <div className="total-right-div">
@@ -209,8 +208,8 @@ export default function UserCheckout (props) {
                         </div>
                     </div>
                 </div>
-                                 
-        </div>     
+                <button className="back" onClick={() => {props.history.goBack(); }}>Back</button>                                
+            </div>     
 
     )   
 }

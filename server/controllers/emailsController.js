@@ -57,7 +57,7 @@ class EmailsController {
                 <br />
                 <h3> Your Order Summary</h3>
                 ${cart.map(ele => ele.title)}
-                <p>total price: ${total}€</p>`
+                <p>Total price: ${total}€</p>`
     };
     transporter.sendMail(mailOptions, (error, info) => {
         let response;

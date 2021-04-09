@@ -21,7 +21,7 @@ export default function Footer() {
                         </div>
                         <div className="contact-footer">
                             <EmailIcon />
-                            <h6>cheekychic@gmail.com</h6>
+                            <h6>cheekychicdemo@gmail.com</h6>
                         </div>
                         <div className="contact-footer">
                             <ScheduleIcon />

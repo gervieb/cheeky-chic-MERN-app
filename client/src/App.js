@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from "react"
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 import Header from "./components/Header"
 import Navbar from "./components/Navbar"
 import Home from "./components/Home"
@@ -9,7 +9,7 @@ import Contact from "./components/Contact"
 import Login from "./containers/Login"
 import Logout from "./containers/Logout"
 import Cart from "./containers/Cart"
-import Checkout from "./containers/Checkout"
+import UserCheckout from "./containers/UserCheckout"
 import Register from "./containers/Register"
 import ItemDetails from "./containers/ItemDetails"
 import AdminDashboard from './containers/AdminDashboard'
@@ -21,9 +21,18 @@ import AddProducts from "./containers/AddProducts"
 import AdminCategories from "./containers/AdminCategories"
 import AdminList from './containers/AdminList'
 import AdminHeader from './components/AdminHeader'
+import GuestForm from "./containers/GuestForm"
+import PageNotFound from "./components/PageNotFound"
+import CheckoutMethod from "./containers/CheckoutMethod"
+import PrivacyPolicy from "./containers/PrivacyPolicy"
+import TermsAndCondition from "./containers/TermsAndCondition"
+import ShippingAndBilling from "./containers/ShippingAndBilling"
+import OrderConfirmation from "./containers/OrderConfirmation"
+import GuestCheckout from "./containers/GuestCheckout"
 import Footer from './components/Footer'
 import { customInstance as axios } from './config.js'
 import "./App.css"
+
 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -85,15 +94,16 @@ export default function App() {
   }, [])
 
 	const verify_token = async () => {
-		if (token === null) return setIsLoggedIn(false);
-		try {
-			axios.defaults.headers.common['Authorization'] = token;
-			const response = await axios.post(`/users/verify_token`);
-			return response.data.ok ? 
-      setIsLoggedIn(true) : setIsLoggedIn(false);
-		} catch (error) {
-			console.log(error);
-		}
+		if (token === null) 
+      return setIsLoggedIn(false);
+      try {
+        axios.defaults.headers.common['Authorization'] = token;
+        const response = await axios.post(`/users/verify_token`);
+        return response.data.ok ? 
+        setIsLoggedIn(true) : setIsLoggedIn(false);
+      } catch (error) {
+        console.log(error);
+      }
 	};
 
 	const login = (token) => {
@@ -168,9 +178,10 @@ export default function App() {
                       <div className="sticky">
                         <Header cartLength={cartLength} isLoggedIn={isLoggedIn}/>
                         <Navbar isAdmin={isAdmin}/>
-                      </div>  
+                      </div> 
+                      <Switch>
                         <Route exact path="/" 
-                            render = {props =>(<Home isLoggedIn={isLoggedIn} setCart={setCart} cart={cart} productData={productData} {...props} />)} />  
+                            render = {props =>(<Home isLoggedIn={isLoggedIn} setCart={setCart} cart={cart} productData={productData} {...props} />)} />                         
                         <Route
                           exact path="/products"
                           render={(props) => <Products {...props} onAdd={onAdd} productData={productData} showAllProducts={showAllProducts} />}/>
@@ -178,13 +189,13 @@ export default function App() {
                         <Route exact path="/contact" component={Contact} /> 
                         <Route exact path='/logout'
                           render = {props =>(<Logout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setIsAdmin={setIsAdmin} setCart={setCart} {...props} />)} /> 
-                        <Route exact path='/profile' 
-                          render = {props =>(<UsersProfile user={user} {...props} />)} /> 
+                        <Route exact path='/profile'component={UsersProfile} />
                         <Route
                           exact path="/products/:id"
                           render={(props) => 
                             (<ItemDetails {...props} 
-                              onAdd={onAdd} isAddedToCart={isAddedToCart} 
+                              onAdd={onAdd}                                                  
+                              isAddedToCart={isAddedToCart} 
                               itemAddedToCart={itemAddedToCart} 
                               setIsAddedToCart={setIsAddedToCart} />)} />  
                         <Route exact path="/cart"
@@ -198,8 +209,17 @@ export default function App() {
                                 cart={cart}
                                 setCart={setCart} 
                                 isLoggedIn={isLoggedIn}/> )} />
-                        <Route exact path="/checkout" component={Checkout} /> 
-                        <Footer />         
+                         <Route exact path="/user-checkout"
+                            render = {props => <UserCheckout user={user} isLoggedIn={isLoggedIn} setCart={setCart} 
+                            storageCart={storageCart} {...props} />} />
+                          <Route exact path="/shipping-and-billing" 
+                          render = {props =><ShippingAndBilling user={user} {...props} />} />
+                          <Route exact path="/privacy-policy" component={PrivacyPolicy} />
+                          <Route exact path="/terms-and-condition" component={TermsAndCondition} />
+                          <Route exact path="/order-confirmation" component={OrderConfirmation} />
+                        <Route  component={PageNotFound} />
+                      </Switch> 
+                      <Footer />         
                     </>:
                     isAdmin && isLoggedIn?
                     <>
@@ -223,21 +243,24 @@ export default function App() {
                         <Header cartLength={cartLength} isLoggedIn={isLoggedIn}/>
                         <Navbar isAdmin={isAdmin}/>
                       </div> 
+                      <Switch>          
                         <Route exact path="/" 
-                            render = {props =>(<Home isLoggedIn={isLoggedIn} setCart={setCart} cart={cart} productData={productData} {...props} />)} />  
+                            render = {props =>(<Home isLoggedIn={isLoggedIn} setCart={setCart} cart={cart} productData={productData} {...props} />)} /> 
                         <Route
                           exact path="/products"
                           render={(props) => <Products {...props} onAdd={onAdd} productData={productData} showAllProducts={showAllProducts} />}/>
                         <Route exact path="/about" component={About} />
                         <Route exact path="/contact" component={Contact} />
-                        <Route exact path="/register" component={Register} />
+                        <Route exact path="/register" 
+                          render={(props)=>(<Register {...props}/>)} />
                         <Route exact path="/login" 
                           render={(props)=>(<Login {...props} login={login} admin={admin}/>)} />
                         <Route
                           exact path="/products/:id"
                           render={(props) => 
                             (<ItemDetails {...props} 
-                              onAdd={onAdd} isAddedToCart={isAddedToCart} 
+                              onAdd={onAdd} 
+                              isAddedToCart={isAddedToCart}
                               itemAddedToCart={itemAddedToCart} 
                               setIsAddedToCart={setIsAddedToCart} />)} />  
                         <Route exact path="/cart"
@@ -249,14 +272,27 @@ export default function App() {
                                 onAdd={onAdd}
                                 onRemove={onRemove}
                                 cart={cart}
-                                setCart={setCart} 
-                                isLoggedIn={isLoggedIn}/> )} />
-                        <Route exact path="/checkout" 
-                            render={(props) => (
-                              <Checkout {...props} setCart={setCart} /> )}/> 
-                              <Footer />  
+                                setCart={setCart}
+                                isLoggedIn={isLoggedIn}
+                                /> )} />
+                        {/* <Route exact path="/checkout"
+                          render = {props => <Checkout user={user} isLoggedIn={isLoggedIn} 
+                          storageCart={storageCart} setCart={setCart} {...props} />} /> */}
+                        <Route exact path="/guest-form"  
+                          render = {props => <GuestForm isLoggedIn={isLoggedIn} {...props} />} /> 
+                        <Route exact path="/checkout-method"
+                          render={(props)=>(<CheckoutMethod {...props} login={login} admin={admin}/>)} />
+                        <Route exact path="/guest-checkout" 
+                          render = {props => <GuestCheckout 
+                          storageCart={storageCart} setCart={setCart} {...props} />} />
+                        <Route exact path="/privacy-policy" component={PrivacyPolicy} />
+                        <Route exact path="/terms-and-condition" component={TermsAndCondition} />
+                        <Route exact path="/order-confirmation" component={OrderConfirmation} />
+                        <Route  component={PageNotFound} />
+                      </Switch> 
+                      <Footer />  
                       </> 
-                    }            
+                    }             
               </Router>                               
           )  
 }

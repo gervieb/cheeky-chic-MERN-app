@@ -14,7 +14,6 @@ export default function CheckoutMethod(props) {
 	}
 
 	const checkoutLogin = async (e) => {
-        console.log('clicked')
 		e.preventDefault()
 		try{
 			const response = await axios.post(`/users/login`, {

@@ -19,6 +19,7 @@
     "react-minimal-side-navigation": "^1.5.1",
     "react-responsive-carousel": "^3.2.11",
     "react-router-dom": "^5.2.0",
+    "react-router-hash-link": "^2.4.0",
     "react-scripts": "4.0.1",
     "react-stripe-checkout": "^2.6.3",
     "semantic-ui-react": "^2.0.3",
