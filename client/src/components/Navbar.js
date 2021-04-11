@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { BsSearch } from 'react-icons/bs'
 import { NavLink } from 'react-router-dom'
 import MenuIcon from '@material-ui/icons/Menu';
 import HamburgerNav from './HamburgerNav';
@@ -25,10 +24,6 @@ export default function Navbar() {
                     <div className="hidden-hamburger">
                         <MenuIcon onClick={showNavbar} />
                     </div>
-                    <div> 
-                        <BsSearch/>
-                        <input className="hidden-searchbar" placeholder="Search"></input> 
-                    </div> 
                 </div>
                 <HamburgerNav navbar={navbar} showNavbar={showNavbar}/>
             </div>

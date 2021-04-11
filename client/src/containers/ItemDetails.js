@@ -6,16 +6,13 @@ import { customInstance as axios } from '../config.js'
 
 export default function ItemDetails(props) {
   const { match, onAdd, isAddedToCart, itemAddedToCart, setIsAddedToCart} = props
-
   const [item, setItem] = useState({});
-  
-  console.log('this is item', item)
-  
   let history = useHistory()
-  
-  function goBack(){
-    history.goBack()
+
+  function goToShop(){
+    history.push('/products')
   }
+  
 
   useEffect(() => {
     fetchSingleProduct();
@@ -35,15 +32,6 @@ export default function ItemDetails(props) {
     }
   };
 
-  // const increaseQuantity = (itemQty) => {
-  //   setItem({...item, qty: itemQty + 1} )
-  // }
-
-  // const decreaseQuantity = (itemQty) => {
-  //   itemQty > 1? setItem({...item, qty: itemQty - 1} ): 
-  //   setItem({...item, qty: 1})
-  // }
-
   return ( 
     <div className="product-wrapper">
       <div className="grid-2-item">
@@ -56,11 +44,6 @@ export default function ItemDetails(props) {
             <li><p>{item.description}</p></li>
             <li><label><strong>Price:</strong> €{item.price} </label></li>
             <br />
-            {/* <li className="quantity-wrapper">
-                <button onClick={() => decreaseQuantity(item.qty)}>-</button>                    
-                  {item.qty}                    
-                <button onClick={() => increaseQuantity(item.qty)}>+</button>
-            </li> */}
             <li>
               <button type="submit" onClick={() => onAdd(item)}>add to cart</button>
               {isAddedToCart?
@@ -76,7 +59,7 @@ export default function ItemDetails(props) {
       </div>
         <div className="go-back-flex">
           <ChevronLeftIcon />
-          <p className="go-back" onClick={goBack}>Back To Shop</p>
+          <p className="go-back" onClick={goToShop}>Go to Shop</p>
         </div>      
     </div>
   );

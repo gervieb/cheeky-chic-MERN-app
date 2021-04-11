@@ -99,14 +99,7 @@ export default function GuestForm(props) {
           </p>
 
           <div className="guest-form-button">
-            <p
-              className="back-to-cart"
-              onClick={() => {
-                props.history.goBack();
-              }}
-            >
-              RETURN
-            </p>
+            <p onClick={() => {props.history.goBack()}}>RETURN</p>
             <button>CONTINUE</button>
           </div>
         </form>

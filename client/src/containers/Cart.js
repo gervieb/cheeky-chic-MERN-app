@@ -6,7 +6,7 @@ import { BsArrowRight } from 'react-icons/bs'
 
 
 export default function Cart(props) {
-    const { cartLength, handleRemoveFromCart, onAdd, onRemove, cart} = props;
+    const { cartLength, handleRemoveFromCart, onAdd, onRemove, cart, setCart} = props;
     const price = cart.reduce((acc, curr) => acc + curr.price * curr.qty, 0);
     const shippingFee = 14;
     const totalPrice = price + shippingFee;
@@ -24,6 +24,14 @@ export default function Cart(props) {
 
     const saveTotalAmount =()=> {
       localStorage.setItem('total-amount', JSON.stringify(price));
+    }
+
+    const emptyCart =() => {
+      let decision = window.confirm('Are you sure you want to delete this item?')
+      if (decision) {
+      localStorage.removeItem('cart-list')
+      setCart([])
+      }
     }
 
     return (
@@ -58,6 +66,7 @@ export default function Cart(props) {
                 </thead>
                     {renderCart}
               </table>
+              <p onClick={emptyCart} className="empty-cart">REMOVE ALL</p>
             </div>
                 {cart.length !== 0 && (
             <div className="price-wrapper">

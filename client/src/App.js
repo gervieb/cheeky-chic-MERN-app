@@ -30,6 +30,7 @@ import ShippingAndBilling from "./containers/ShippingAndBilling"
 import OrderConfirmation from "./containers/OrderConfirmation"
 import GuestCheckout from "./containers/GuestCheckout"
 import Footer from './components/Footer'
+import Searchbar from './containers/Searchbar'
 import { customInstance as axios } from './config.js'
 import "./App.css"
 
@@ -217,7 +218,8 @@ export default function App() {
                           <Route exact path="/privacy-policy" component={PrivacyPolicy} />
                           <Route exact path="/terms-and-condition" component={TermsAndCondition} />
                           <Route exact path="/order-confirmation" component={OrderConfirmation} />
-                        <Route  component={PageNotFound} />
+                          <Route exact path="/search" component={Searchbar} />                    
+                          <Route component={PageNotFound} />
                       </Switch> 
                       <Footer />         
                     </>:
@@ -275,9 +277,6 @@ export default function App() {
                                 setCart={setCart}
                                 isLoggedIn={isLoggedIn}
                                 /> )} />
-                        {/* <Route exact path="/checkout"
-                          render = {props => <Checkout user={user} isLoggedIn={isLoggedIn} 
-                          storageCart={storageCart} setCart={setCart} {...props} />} /> */}
                         <Route exact path="/guest-form"  
                           render = {props => <GuestForm isLoggedIn={isLoggedIn} {...props} />} /> 
                         <Route exact path="/checkout-method"
@@ -288,7 +287,8 @@ export default function App() {
                         <Route exact path="/privacy-policy" component={PrivacyPolicy} />
                         <Route exact path="/terms-and-condition" component={TermsAndCondition} />
                         <Route exact path="/order-confirmation" component={OrderConfirmation} />
-                        <Route  component={PageNotFound} />
+                        <Route exact path="/search" component={Searchbar} />                     
+                        <Route component={PageNotFound} />
                       </Switch> 
                       <Footer />  
                       </> 
