@@ -20,7 +20,9 @@ body {
 
 .sticky {
   position: -webkit-sticky;
-  position: sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
   top: 0;
   z-index: 1;
 }
@@ -493,7 +495,10 @@ button[type="submit"], .total-price> a {
 .navbar-container {
   width: 100%;
   background-color: rgb(225, 244, 244);
-  position: sticky;
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
   z-index: 100;
 }
 
@@ -637,13 +642,39 @@ span {
   height: 20px;
 }
 
-.go-back-flex:hover {
-  background-color: #d3d3d3;
-}
 
 .go-back {
-  color: rgb(0, 99, 177);
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
   cursor: pointer;
+  background: #e1e1e1;
+  padding: 1em;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-font-smoothing: antialiased;
+}
+
+.go-back:before {
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+  content: '';
+  border-style: solid;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  top: calc(50% - 10px);
+  left: 0;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent #e1e1e1 transparent transparent;
+}
+.go-back:hover:before, .go-back:focus:before, .go-back:active:before {
+  -webkit-transform: translateX(-10px);
+  transform: translateX(-10px);
 }
 
 
@@ -888,7 +919,7 @@ span {
 
 .checkout-wrapper {
   margin-top: 60px;
-  margin-bottom: 100px;
+  margin-bottom: 120px;
 }
 
 .pay-div {
@@ -968,10 +999,12 @@ span {
 .back {
   margin-top: 50px;
   color: rgb(0, 99, 177);
-  padding: 5px 10px;
+  padding: 1em;
   width: 80px;
   float: left;
   margin-left: 10%;
+  border: none;
+  outline: none;
 }
 
 .total-amount {
@@ -1278,18 +1311,38 @@ span {
 }
 
 .guest-form-button button {
-  text-decoration: none;
-  background-color: rgb(255, 145, 0);
-  color: white;
-  padding: 10px 15px;
-  border: none;
-}
-
-.guest-form-button p {
-  color: rgb(0, 99, 177);
-  border: 1px solid gray;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
   cursor: pointer;
-  padding: 5px 10px;
+  background: rgb(255, 145, 0);
+  padding: 1em;
+  border: none;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-font-smoothing: antialiased;
+}
+.guest-form-button button:before {
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+  content: '';
+  border-style: solid;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  top: calc(50% - 10px);
+  right: 0;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent rgb(255, 145, 0);
+}
+.guest-form-button button:hover:before, .guest-form-button button:focus:before, .guest-form-button button:active:before {
+  -webkit-transform: translateX(10px);
+  transform: translateX(10px);
 }
 
 .guest-container a {
@@ -1359,7 +1412,10 @@ span {
   align-self: start;
   left: 0;
   z-index: 1;
-  position: sticky;
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
 }
 
 .sidebar-container ul {
