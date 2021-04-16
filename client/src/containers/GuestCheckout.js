@@ -200,7 +200,7 @@ export default function Checkout (props) {
                     </div>
                 </div>
             </div> 
-            <button className="back" onClick={() => {props.history.goBack(); }}>Back</button>                           
+            <button className="go-back back" onClick={() => {props.history.goBack(); }}>RETURN</button>                           
     </div>     
     )   
 }
