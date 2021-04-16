@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom"
 import FlashMessage from 'react-flash-message'
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { customInstance as axios } from '../config.js'
 
 export default function ItemDetails(props) {
@@ -58,8 +57,7 @@ export default function ItemDetails(props) {
         </div> 
       </div>
         <div className="go-back-flex">
-          <ChevronLeftIcon />
-          <p className="go-back" onClick={goToShop}>Go to Shop</p>
+          <p className="go-back" onClick={goToShop}>GO TO SHOP</p>
         </div>      
     </div>
   );
