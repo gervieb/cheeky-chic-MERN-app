@@ -5,7 +5,7 @@ export default function OrderConfirmation() {
 
     return (
         <div>
-            <p className="order-successfull-text">Order placed successfully!</p>
+            <p className="order-successful-text">Order placed successfully!</p>
             <div className="order-confirmation">
                 <div>             
                     <h3>WE'VE RECEIVED YOUR ORDER!</h3>
