@@ -61,33 +61,35 @@ export default function CheckoutMethod(props) {
                                 <input type="checkbox" onClick={togglePasswordVisiblity}/>
                                 <p>Show Password</p>
                             </div>
-                            <button className="checkout-login-button" type="submit">SIGN IN</button>
                         </form>
                     </div>
+                    <button className="checkout-login-button" type="submit">SIGN IN</button>
                 </div>
 
                 <div className="grid-3-box">
                     <div className="grid-3-box2">
                         <h3>NEW CUSTOMER</h3>
                         <p>Creating an account has many benefits:</p>
-                        <ul>
-                            <li>See order and shipping status</li>
-                            <li>Track order history</li>
-                            <li>Checkout faster</li>
-                        </ul>
-                        <Link to="/register">REGISTER</Link>
+                        <div className="benefits-box">
+                            <ul>
+                                <li>See order and shipping status</li>
+                                <li>Track order history</li>
+                                <li>Checkout faster</li>
+                            </ul>
+                        </div>
                     </div>
+                    <Link to="/register">REGISTER</Link>
                 </div>
 
                 <div className="grid-3-box">
                     <div className="grid-3-box2">
                         <h3>GUEST CHECKOUT</h3>
                         <p className="guest-message">Continue to checkout without an account</p>
-                        <Link to={{
+                    </div>
+                    <Link to={{
                             pathname: "/guest-form",
                             state: props.location.state
                             }}>GUEST CHECKOUT</Link>
-                    </div>
                 </div>
             </div>
             
