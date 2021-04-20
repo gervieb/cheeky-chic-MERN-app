@@ -47,11 +47,11 @@ export default function Header({ cartLength, isLoggedIn }) {
             product.title.toLowerCase().includes(search) ||
             product.category.toLowerCase().includes(search) ||
             product.description.toLowerCase().includes(search)
-            )
-        }); 
+        )
+    }); 
 
         history.push({
-            pathname: "/search",
+            pathname: "/display",
             state: filteredProd,
             products: allProducts}) 
     }

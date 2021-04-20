@@ -10,7 +10,6 @@ export default function Cart(props) {
     const price = cart.reduce((acc, curr) => acc + curr.price * curr.qty, 0);
     const shippingFee = 14;
     const totalPrice = price + shippingFee;
-
   
     const renderCart = cart.map((item, idx) => (
       <ItemInCart

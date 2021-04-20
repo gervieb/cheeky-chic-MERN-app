@@ -34,7 +34,6 @@ class ProductsController {
         catch(error){
             res.send({error})
         }
-
     }
 
     async create (req, res) {
@@ -60,7 +59,7 @@ class ProductsController {
     }
 
     async update (req, res){
-        let { newTitle, newPrice, newDescription, newImage, id } = req.body;
+        let { newTitle, newPrice, newDescription, newCategory, newImage, id } = req.body;
         try{
             const oldProduct = await Products.findOne({_id:id})
             const updateProduct = await Products.updateOne(
@@ -68,6 +67,7 @@ class ProductsController {
                             title:newTitle || oldProduct.title, 
                             price:newPrice || oldProduct.price,
                             description:newDescription || oldProduct.description, 
+                            category:newCategory || oldProduct.category,
                             image: newImage || oldProduct.image,
                             _id: id || oldProduct._id
                         }

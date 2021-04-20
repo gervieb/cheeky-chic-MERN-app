@@ -95,12 +95,10 @@ export default function GuestForm(props) {
             <Link to="/privacy-policy">
               <b className="policy">Privacy Policy</b>
             </Link>
-            .
           </p>
-
-          <div className="guest-form-button">
+          <div className="action-wrapper">
             <p className="go-back" onClick={() => {props.history.goBack()}}>RETURN</p>
-            <button>CONTINUE</button>
+            <button className="continue-button">CONTINUE</button>
           </div>
         </form>
       </div>

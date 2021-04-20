@@ -13,16 +13,16 @@ class CategoriesController {
     }
   
     async findOne(req ,res){
-        let { categoryName } = req.body;
+        let { category } = req.body;
         try{
-            const myCategory = await Products.findOne({categoryName});
+            const myCategory = await Products.findOne({category});
             res.status(200).send({myCategory});
         }
         catch(error){
             res.send({error})
         }
-
     }
+    
     async create (req, res) {
         let { category } = req.body;
         try{
