@@ -32,7 +32,7 @@ const handleSubmit=(e)=> {
 
 
     return (
-        <div className="container"> 
+        <div className="container contact"> 
             <div className="contact-container">          
                 <form className="contact" onSubmit={handleSubmit}>
                     <h1>GET IN TOUCH</h1>
