@@ -12,6 +12,7 @@ const fromEuroToCent = amount => amount * 100
 export default function Checkout (props) {
     const [showForm, setShowForm] = useState(false)
     const [amount, setAmount] = useState(0)
+    const [cart, setCart] = useState([])
     const [guestDetails, setGuestDetails] = useState({
                 firstName 	: " ",
 				lastName	: " ",
@@ -85,6 +86,11 @@ export default function Checkout (props) {
         setShowForm(false)
     }
 
+    useEffect(() => {
+        const cartList = JSON.parse(localStorage.getItem('cart-list'));
+        setCart(cartList)
+    }, [])
+
     const handleCancel =()=> {
         setShowForm(showForm? false: true)
     }
@@ -99,7 +105,7 @@ export default function Checkout (props) {
             <div className="order-summary-wrapper">
                 <div className="product-checkout-wrapper">
                     
-                    {props.storageCart.map(el=> {
+                    {cart.map(el=> {
                         return <div key={el._id} className="product-checkout">
                             <div>
                                 <img src={el.image} alt={el.title} />
@@ -200,7 +206,7 @@ export default function Checkout (props) {
                     </div>
                 </div>
             </div> 
-            <button className="go-back back" onClick={() => {props.history.goBack(); }}>RETURN</button>                           
+            <button className="go-back back" onClick={() => {props.history.goBack()}}>RETURN</button>                           
     </div>     
     )   
 }
