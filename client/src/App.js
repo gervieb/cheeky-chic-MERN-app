@@ -30,7 +30,8 @@ import ShippingAndBilling from "./containers/ShippingAndBilling"
 import OrderConfirmation from "./containers/OrderConfirmation"
 import GuestCheckout from "./containers/GuestCheckout"
 import Footer from './components/Footer'
-import Searchbar from './containers/Searchbar'
+import DisplayProduct from './containers/DisplayProduct'
+import ProductByCategory from './containers/ProductByCategory'
 import { customInstance as axios } from './config.js'
 import "./App.css"
 
@@ -77,7 +78,6 @@ export default function App() {
   useEffect(() => {
     localStorage.setItem('cart-list', JSON.stringify(cart));
   }, [cart]); 
-
 
   useEffect(() => {
     setProductDetails({
@@ -185,7 +185,7 @@ export default function App() {
                             render = {props =>(<Home isLoggedIn={isLoggedIn} setCart={setCart} cart={cart} productData={productData} {...props} />)} />                         
                         <Route
                           exact path="/products"
-                          render={(props) => <Products {...props} onAdd={onAdd} productData={productData} showAllProducts={showAllProducts} />}/>
+                          render={props => <Products {...props} onAdd={onAdd} productData={productData} showAllProducts={showAllProducts} />}/>
                         <Route exact path="/about" component={About} />
                         <Route exact path="/contact" component={Contact} /> 
                         <Route exact path='/logout'
@@ -193,14 +193,14 @@ export default function App() {
                         <Route exact path='/profile'component={UsersProfile} />
                         <Route
                           exact path="/products/:id"
-                          render={(props) => 
+                          render={props => 
                             (<ItemDetails {...props} 
                               onAdd={onAdd}                                                  
                               isAddedToCart={isAddedToCart} 
                               itemAddedToCart={itemAddedToCart} 
                               setIsAddedToCart={setIsAddedToCart} />)} />  
                         <Route exact path="/cart"
-                            render={(props) => (
+                            render={props => (
                               <Cart
                                 {...props}
                                 cartLength={cartLength}
@@ -218,7 +218,9 @@ export default function App() {
                           <Route exact path="/privacy-policy" component={PrivacyPolicy} />
                           <Route exact path="/terms-and-condition" component={TermsAndCondition} />
                           <Route exact path="/order-confirmation" component={OrderConfirmation} />
-                          <Route exact path="/search" component={Searchbar} />                    
+                          <Route exact path="/display" component={DisplayProduct} />
+                          <Route exact path="/product-by-category" 
+                            render = {props =><ProductByCategory {...props} productData={productData} />} />                  
                           <Route component={PageNotFound} />
                       </Switch> 
                       <Footer />         
@@ -250,23 +252,23 @@ export default function App() {
                             render = {props =>(<Home isLoggedIn={isLoggedIn} setCart={setCart} cart={cart} productData={productData} {...props} />)} /> 
                         <Route
                           exact path="/products"
-                          render={(props) => <Products {...props} onAdd={onAdd} productData={productData} showAllProducts={showAllProducts} />}/>
+                          render={props => <Products {...props} onAdd={onAdd} productData={productData} showAllProducts={showAllProducts} />}/>
                         <Route exact path="/about" component={About} />
                         <Route exact path="/contact" component={Contact} />
                         <Route exact path="/register" 
-                          render={(props)=>(<Register {...props}/>)} />
+                          render={props=>(<Register {...props}/>)} />
                         <Route exact path="/login" 
-                          render={(props)=>(<Login {...props} login={login} admin={admin}/>)} />
+                          render={props=>(<Login {...props} login={login} admin={admin}/>)} />
                         <Route
                           exact path="/products/:id"
-                          render={(props) => 
+                          render={props => 
                             (<ItemDetails {...props} 
                               onAdd={onAdd} 
                               isAddedToCart={isAddedToCart}
                               itemAddedToCart={itemAddedToCart} 
                               setIsAddedToCart={setIsAddedToCart} />)} />  
                         <Route exact path="/cart"
-                            render={(props) => (
+                            render={props => (
                               <Cart
                                 {...props}
                                 cartLength={cartLength}
@@ -280,14 +282,16 @@ export default function App() {
                         <Route exact path="/guest-form"  
                           render = {props => <GuestForm isLoggedIn={isLoggedIn} {...props} />} /> 
                         <Route exact path="/checkout-method"
-                          render={(props)=>(<CheckoutMethod {...props} login={login} admin={admin}/>)} />
+                          render={props=>(<CheckoutMethod {...props} login={login} admin={admin}/>)} />
                         <Route exact path="/guest-checkout" 
                           render = {props => <GuestCheckout 
                           storageCart={storageCart} setCart={setCart} {...props} />} />
                         <Route exact path="/privacy-policy" component={PrivacyPolicy} />
                         <Route exact path="/terms-and-condition" component={TermsAndCondition} />
                         <Route exact path="/order-confirmation" component={OrderConfirmation} />
-                        <Route exact path="/search" component={Searchbar} />                     
+                        <Route exact path="/display" component={DisplayProduct} />
+                        <Route exact path="/product-by-category" 
+                            render = {props =><ProductByCategory {...props} productData={productData} />} />                         
                         <Route component={PageNotFound} />
                       </Switch> 
                       <Footer />  
