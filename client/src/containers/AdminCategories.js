@@ -13,6 +13,19 @@ export default function AdminCategories() {
        showCategories()
     }, [])
 
+    const handleForm = e => {
+        setNewCatDetails({...newCatDetails, [e.target.name]:e.target.value })
+    }
+
+    const form = (id) => {
+        setShowCategoryForm(true)
+        setNewCatDetails({_id: id})
+    }
+
+    const handleCancel = e => {
+        setShowCategoryForm(false)
+    }
+
     const showCategories = async () => {
         try{
           const response =  await axios.get(`/categories/find_all`)
@@ -55,19 +68,6 @@ export default function AdminCategories() {
         showCategories()
     }
 
-    const form = (id) => {
-        setShowCategoryForm(true)
-        setNewCatDetails({_id: id})
-    }
-
-    const handleForm = e => {
-        setNewCatDetails({...newCatDetails, [e.target.name]:e.target.value })
-    }
-
-    const handleCancel = e => {
-        setShowCategoryForm(false)
-    }
-
     const updateCategory = async () => {
         try{
            await axios.post(`/categories/update`, {
@@ -79,8 +79,7 @@ export default function AdminCategories() {
           console.log(error)
         }
         showCategories();
-        setShowCategoryForm(false)
-        
+        setShowCategoryForm(false)       
     }
 
     return (
