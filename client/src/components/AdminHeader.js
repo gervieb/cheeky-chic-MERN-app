@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import MenuIcon from '@material-ui/icons/Menu';
 
-export default function AdminHeader() {
+export default function AdminHeader({ showSidebar }) {
     const [adminName, setAdminName] = useState('')
 
     useEffect(() => {
@@ -11,6 +13,11 @@ export default function AdminHeader() {
 
     return (
         <div className="admin-header-wrapper header-flex">
+            <div className="sidebar">
+                <Link to='#' className='menu-bars'>
+                    <MenuIcon onClick={showSidebar}/>
+                </Link>
+            </div>
             <div>
                 <h1>Cheeky-Chic</h1>
             </div>
