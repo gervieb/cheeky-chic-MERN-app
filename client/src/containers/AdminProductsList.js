@@ -66,6 +66,7 @@ export default function AdminProductsList(props) {
               newTitle      : productDetails.title,
               newPrice      : productDetails.price,
               newDescription: productDetails.description,
+              newCategory   : productDetails.category,
               id            : productDetails._id,
               newImage      : productDetails.image
               })
