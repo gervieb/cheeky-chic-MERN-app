@@ -47,10 +47,10 @@ export default function AdminUpdateProducts(props) {
             </div>
             <div className="label-flex">
               <p>New Category:</p>
-              <select name="category" className="category">
-                  <option>CHOOSE CATEGORY</option>
+              <select name="category" className="category" onChange={handleChange}>
+                  <option value="">CHOOSE CATEGORY</option>
                   {categories.map((cat, id) => {
-                  return <option key={id} >{cat.category}</option>
+                  return <option key={id}>{cat.category}</option>
                 })}
               </select> 
             </div>
