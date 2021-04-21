@@ -51,20 +51,20 @@ export default function CheckoutMethod(props) {
         <div className="guest-checkout-wrapper">
             <h2>HOW WOULD YOU LIKE TO CHECKOUT TODAY?</h2>
             <div className="guest-checkout-grid3">
-                <div className="grid-3-box">
+                <form className="grid-3-box" onChange={handleChange} onSubmit={checkoutLogin} >
                     <div className="grid-3-box2">
                         <h3>CHEEKY CHIC MEMBER</h3>
-                        <form onChange={handleChange} onSubmit={checkoutLogin} >
+                        <div>
                             <input name="email" type="text" className="email" required placeholder="Email*" /><br />
                             <input name="password" type={passwordShown? "text": "password"} required placeholder="Password*" /><br />
                             <div className="toggle-password">
                                 <input type="checkbox" onClick={togglePasswordVisiblity}/>
                                 <p>Show Password</p>
                             </div>
-                        </form>
+                        </div>
                     </div>
-                    <button className="checkout-login-button" type="submit">SIGN IN</button>
-                </div>
+                    <button type="submit" className="checkout-login-button">SIGN IN</button>
+                </form>
 
                 <div className="grid-3-box">
                     <div className="grid-3-box2">

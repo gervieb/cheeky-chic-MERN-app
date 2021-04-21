@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom"
 import FlashMessage from 'react-flash-message'
 import { customInstance as axios } from '../config.js'
 
 export default function ItemDetails(props) {
   const { match, onAdd, isAddedToCart, itemAddedToCart, setIsAddedToCart} = props
   const [item, setItem] = useState({});
-  let history = useHistory()
 
+  
   function goToShop(){
-    history.push('/products')
+    props.history.push('/products')
   }
   
-
   useEffect(() => {
     fetchSingleProduct();
     // eslint-disable-next-line react-hooks/exhaustive-deps
