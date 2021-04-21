@@ -23,15 +23,19 @@ const Login = (props) => {
 			})
 			if (response.data.ok) {
 				if(response.data.admin === true) {
-				localStorage.setItem('admin-name', JSON.stringify(response.data.firstName));
-				props.admin(response.data.admin)
-				props.login(response.data.token)
-				props.history.push('/admin-dashboard')
+				setTimeout(() => {
+					localStorage.setItem('admin-name', JSON.stringify(response.data.firstName));
+					props.admin(response.data.admin)
+					props.login(response.data.token)
+					props.history.push('/admin-dashboard')
+				}, 2000)
 			} else if (response.data.admin === false) {
+				setTimeout(() => {
 					localStorage.setItem('user-data', JSON.stringify(response.data));
 					props.admin(response.data.admin)
 					props.login(response.data.token)
 					props.history.push('/') 
+				}, 2000)
 				} else {
 					props.history.push('/')
 				}
