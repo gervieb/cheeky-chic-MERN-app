@@ -1598,7 +1598,7 @@ span {
   align-self: center;
   padding: 8px 0px 8px 16px;
   list-style: none;
-  height: 60px; 
+  height: 50px; 
   cursor: pointer;
 }
 
@@ -1742,6 +1742,7 @@ span {
 .add-product-wrapper {
   margin-left: 250px;
   padding-top: 120px;
+  padding-bottom: 30px;
 }
 
 .left-right-wrapper {
@@ -1856,7 +1857,7 @@ div.clear {
 
 .products-grid-5 {
   display: grid;
-  grid-template-columns: repeat(5, 37% 12% 20% 8% 10%);
+  grid-template-columns: 37% 12% 20% 8% 10%;
   grid-column-gap: 3em;
   padding-top: 1em;
   padding-bottom: 1em;
@@ -1904,6 +1905,11 @@ div.clear {
 .category-wrapper {
   margin-left: 250px;
   margin-top: 150px;
+  padding-bottom: 30px;
+}
+
+.show-product-form .form-wrapper {
+  padding-bottom: 30px;
 }
 
 .category-form-wrapper {
@@ -2185,7 +2191,7 @@ footer > div {
 
 footer div > a {
   text-decoration: none;
-  color: rgb(0, 99, 177);;
+  color: #fff;
   margin: 0;
 }
 
@@ -2238,7 +2244,7 @@ footer div > a {
   }
 
   .products-grid-5 {
-  grid-template-columns: repeat(5, 18% 15% 35% 8% 15%);
+  grid-template-columns: 18% 15% 35% 8% 15%;
   }
 
   .userslist-table {
@@ -2349,7 +2355,6 @@ footer div > a {
     width: 70%;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 20px;
   }
 
   .right-div {
@@ -2413,6 +2418,10 @@ footer div > a {
     justify-content: flex-start;
     align-items: center;
     top: 10px;
+  }
+
+  .sidebar-text {
+    padding: 8px 0px 8px 0px;
   }
 
   .admin-sidebar{
@@ -2558,6 +2567,14 @@ footer div > a {
     height: auto;
     padding-bottom: 60px;
   }
+  
+  .about-container {
+    padding-top: 0;
+  }
+
+  .contact {
+    margin-top: 0;
+  }
 
   .navbar {
     width: 60%;
@@ -2589,7 +2606,7 @@ footer div > a {
 
   .sidebar-text a {
     font-size: 16px;
-    padding: 0;
+    padding: 5px;
   }
 
   .sidebar-menu-items > h1 {
@@ -2712,6 +2729,11 @@ footer div > a {
   .billing-checkbox-wrapper {
     margin-top: 30px;
   }
+
+  .cart-wrapper img {
+    width: 280px;
+    height: 250px;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -2738,6 +2760,7 @@ footer div > a {
   .navbar a {
     font-size: medium;
     letter-spacing: 0;
+    padding-bottom: 2px;
   }
 
   .signup-form a {
@@ -2765,10 +2788,6 @@ footer div > a {
     grid-gap: 1em;
   }
 
-  .about-container {
-    padding-top: 20px;
-  }
-
   .search-bar-wrapper a {
     margin-left: 0.5em;
   }
@@ -2785,11 +2804,32 @@ footer div > a {
   .fashion-collection {
     font-size: medium;
   }
+
+  .flex-register {
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+
+  .flex-register input {
+    padding: 8px;
+  }
+
+  .register-container {
+    width: 300px;
+  }
+
+  .register-wrapper {
+    margin-top: 30px;
+  }
+
+  .flex-checkbox p {
+    padding-top: 10px;
+  }
 }
 
 @media only screen and (max-width: 560px) {
   .shop-title {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .show-product-form .form-wrapper {
@@ -2856,7 +2896,11 @@ footer div > a {
   }
 
   .show-searchbar {
-    height: 50px;;
+    height: 70px;;
+  }
+
+  .search-bar {
+    margin-top: 20px;
   }
 }
 
@@ -2867,6 +2911,7 @@ footer div > a {
 
   .left-div {
     width: 90%;
+    margin-bottom: 10px;
   }
 
   .right-div {
@@ -2891,10 +2936,6 @@ footer div > a {
 
   .userslist-table td {
     font-size: x-small;
-  }
-
-  .navbar a {
-    font-size: 14px;
   }
 
   .header-container {
@@ -2994,6 +3035,10 @@ footer div > a {
     display: none;
   }
 
+  #navbar-active {
+    padding-top: 0;
+  }
+
   .hidden-nav-wrapper {
     display: block;
   }
@@ -3015,6 +3060,8 @@ footer div > a {
 
   .hidden-hamburger .MuiSvgIcon-root {
     margin-left: 10px;
+    width: 1.2em;
+    height: 1.2em;
   }
 
   #cart th {
@@ -3061,7 +3108,7 @@ footer div > a {
   }
 
   .contact {
-    margin-top: 40px;
+    margin-top: 30px;
   }
 
   .featured-products {
@@ -3069,7 +3116,7 @@ footer div > a {
   }
 
   .sidebar-text {
-    height: 20px;
+    height: 30px;
   }
 
   .sidebar-menu-items h1 {
@@ -3084,6 +3131,31 @@ footer div > a {
     grid-gap: 1em;
     margin-top: 0;
   } 
+
+  .cart-wrapper img {
+    width: 240px;
+    height: 200px;
+  }
+
+  .search-bar-wrapper {
+    margin-right: 10px;
+  }
+
+  .login-wrapper {
+    margin-top: 30px;
+  }
+
+  .about-container {
+    padding-top: 10px;
+  }
+
+  .register-container {
+    width: 70%;
+  }
+
+  .products-grid-5 {
+    grid-template-columns: 18% 19% 20% 11% 15%;
+  }
 }
 
 
@@ -3123,6 +3195,19 @@ footer div > a {
 
   .img-box h2 {
     font-size: 13px;
+  }
+
+  .cart-wrapper img {
+    width: 180px;
+    height: 160px;
+  }
+
+  .shop-now-label {
+    padding: 4px 5px;
+  }
+
+  .register h2 {
+    margin-bottom: 9%;
   }
 }
 
