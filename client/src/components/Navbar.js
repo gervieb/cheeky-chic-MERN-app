@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import MenuIcon from '@material-ui/icons/Menu';
 import HamburgerNav from './HamburgerNav';
+import CloseIcon from '@material-ui/icons/Close';
 
 export default function Navbar() {
     const [navbar, setNavbar] = useState(false)
@@ -22,10 +23,13 @@ export default function Navbar() {
             <div className="hidden-nav-wrapper">
                 <div className="hidden-nav">
                     <div className="hidden-hamburger">
-                        <MenuIcon onClick={showNavbar} />
+                        {navbar?
+                            <CloseIcon onClick={showNavbar} />:
+                            <MenuIcon onClick={showNavbar} />
+                        }
                     </div>
-                </div>
-                <HamburgerNav navbar={navbar} showNavbar={showNavbar}/>
+                </div>               
+                <HamburgerNav navbar={navbar} showNavbar={showNavbar}/>                          
             </div>
         </div>
     )
