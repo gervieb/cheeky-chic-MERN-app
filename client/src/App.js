@@ -294,7 +294,7 @@ export default function App() {
                             render = {props =><ProductByCategory {...props} productData={productData} />} />                         
                         <Route component={PageNotFound} />
                       </Switch> 
-                      <Footer />  
+                      <Footer isLoggedIn={isLoggedIn} />  
                       </> 
                     }             
               </Router>                               
