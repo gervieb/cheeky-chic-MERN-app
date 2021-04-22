@@ -5,7 +5,7 @@ import PhoneIcon from '@material-ui/icons/Phone';
 import EmailIcon from '@material-ui/icons/Email';
 import ScheduleIcon from '@material-ui/icons/Schedule';
 
-export default function Footer() {
+export default function Footer({ isLoggedIn }) {
     return (
         <div>
             <footer>
@@ -31,9 +31,12 @@ export default function Footer() {
                 <div>
                     <h4>MY ACCOUNT</h4>
                         <Link to={"/about"}><h6 className="footerText">About us</h6></Link>                         
-                        <Link to={"/contact"}><h6 className="footerText">Contact us</h6></Link>                      
-                        <h6>My Account</h6>                        
+                        <Link to={"/contact"}><h6 className="footerText">Contact us</h6></Link> 
+                        {isLoggedIn?
+                        <Link to="/profile"><h6>My Account</h6>                       
                         <h6>Order history</h6>
+                        </Link> : null
+                        }
                 </div>
                 <div>
                     <h4>FOLLOW US</h4>
