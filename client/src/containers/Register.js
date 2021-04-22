@@ -44,7 +44,7 @@ const Register = (props) => {
 	};
 
 	return (
-			<div className="container">
+			<div className="container register-wrapper">
 				<form className="register-container register" onSubmit={handleSubmit} onChange={handleChange}>
 				<h2>CREATE YOUR ACCOUNT</h2>
 

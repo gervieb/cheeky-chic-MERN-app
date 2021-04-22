@@ -55,7 +55,7 @@ const Login = (props) => {
 
 
 return (
-		<div className="container">
+		<div className="container login-wrapper">
 			<form className="form-container login" onSubmit={handleSubmit} onChange={handleChange}>
 			<h2>LOGIN</h2>
 			<label>Email *</label>    
