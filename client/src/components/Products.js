@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import FlashMessage from 'react-flash-message'
+import toast, { Toaster } from 'react-hot-toast';
+
+const notify = () => toast('1 product added to cart');
 
 export default function Products({ productData, onAdd, showAllProducts }) {
 
@@ -13,7 +15,8 @@ export default function Products({ productData, onAdd, showAllProducts }) {
             {productData.map((product, id)=> 
                 <div key={id} className="img-wrap">                   
                         <img src={product.image} alt={product.title} /> 
-                        <p className="img-add-cart" onClick={() => onAdd(product)}>Add To Cart</p>                 
+                        <p className="img-add-cart" onClick={() => {onAdd(product); notify()}}>Add To Cart</p> 
+                        <Toaster/>                
                     <Link to={`./products/${product._id}`}>                
                         <h4 className="product-title">{product.title}</h4>
                     </Link>
