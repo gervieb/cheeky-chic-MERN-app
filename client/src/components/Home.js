@@ -22,6 +22,10 @@ export default function Home(props) {
     setData(sliced)
   }
 
+  if (data === null) {
+    return null;
+  }
+
   return (
     <div className="featured-products">    
         <Carousel>
@@ -36,30 +40,33 @@ export default function Home(props) {
             </div>
           ))}
         </Carousel>
-        
-        <h2 className="fashion-collection">OUR FASHION COLLECTION</h2>
-        <div className="collection-wrapper">         
-          <div className="img-box">
-          <img src={apparel} alt="apparel" />
-            <Link to={{pathname: "/product-by-category", data: "apparel"}}><h2 className="collection-label">Apparel</h2></Link>
+
+        { data.length > 0? 
+        <>
+          <h2 className="fashion-collection">OUR FASHION COLLECTION</h2>
+          <div className="collection-wrapper">         
+            <div className="img-box">
+            <img src={apparel} alt="apparel" />
+              <Link to={{pathname: "/product-by-category", data: "apparel"}}><h2 className="collection-label">Apparel</h2></Link>
+            </div>
+            <div className="img-box">
+              <img src={shoes} alt="shoes" />
+              <Link to={{pathname: "/product-by-category", data: "shoes"}}><h2 className="collection-label">Shoes</h2></Link>
+            </div>
+            <div className="img-box">
+              <img src={watch} alt="watch" />
+              <Link to={{pathname: "/product-by-category", data: "watches"}}><h2 className="collection-label">Watches</h2></Link>
+            </div>
+            <div className="img-box">
+              <img src={bag} alt="bags" />
+              <Link to={{pathname: "/product-by-category", data: "bags"}}><h2 className="collection-label">Bags</h2></Link>
+            </div>
+            <div className="img-box">
+              <img src={jewelry} alt="jewelry" />
+              <Link to={{pathname: "/product-by-category", data: "jewelry"}}><h2 className="collection-label">Jewelry</h2></Link>
+            </div>
           </div>
-          <div className="img-box">
-            <img src={shoes} alt="shoes" />
-            <Link to={{pathname: "/product-by-category", data: "shoes"}}><h2 className="collection-label">Shoes</h2></Link>
-          </div>
-          <div className="img-box">
-            <img src={watch} alt="watch" />
-            <Link to={{pathname: "/product-by-category", data: "watches"}}><h2 className="collection-label">Watches</h2></Link>
-          </div>
-          <div className="img-box">
-            <img src={bag} alt="bags" />
-            <Link to={{pathname: "/product-by-category", data: "bags"}}><h2 className="collection-label">Bags</h2></Link>
-          </div>
-          <div className="img-box">
-            <img src={jewelry} alt="jewelry" />
-            <Link to={{pathname: "/product-by-category", data: "jewelry"}}><h2 className="collection-label">Jewelry</h2></Link>
-          </div>
-        </div> 
+        </>: null } 
     </div>
   )
 }
