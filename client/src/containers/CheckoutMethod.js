@@ -52,9 +52,9 @@ export default function CheckoutMethod(props) {
             <h2>HOW WOULD YOU LIKE TO CHECKOUT TODAY?</h2>
             <div className="guest-checkout-grid3">
                 <form className="grid-3-box" onChange={handleChange} onSubmit={checkoutLogin} >
-                    <div className="grid-3-box2">
+                    <div className="grid-3-box2 cheeky-login">
                         <h3>CHEEKY CHIC MEMBER</h3>
-                        <div>
+                        <div className="login-checkout-form">
                             <input name="email" type="text" className="email" required placeholder="Email*" /><br />
                             <input name="password" type={passwordShown? "text": "password"} required placeholder="Password*" /><br />
                             <div className="toggle-password">
@@ -67,7 +67,7 @@ export default function CheckoutMethod(props) {
                 </form>
 
                 <div className="grid-3-box">
-                    <div className="grid-3-box2">
+                    <div className="grid-3-box2 register-checkout-method">
                         <h3>NEW CUSTOMER</h3>
                         <p>Creating an account has many benefits:</p>
                         <div className="benefits-box">
@@ -81,7 +81,7 @@ export default function CheckoutMethod(props) {
                     <Link to="/register">REGISTER</Link>
                 </div>
 
-                <div className="grid-3-box">
+                <div className="grid-3-box guest-checkout">
                     <div className="grid-3-box2">
                         <h3>GUEST CHECKOUT</h3>
                         <p className="guest-message">Continue to checkout without an account</p>
