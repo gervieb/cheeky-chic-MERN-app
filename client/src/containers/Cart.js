@@ -36,7 +36,7 @@ export default function Cart(props) {
     return (
       <div className="cart-wrapper"> 
         {cartLength === 0 ? <>
-        <img src={shoppingCart} alt="empty shopping cart" />
+        <img src={shoppingCart} alt="empty shopping cart" className="empty-cart-icon"/>
         <p>Your shopping cart is empty.</p>
         <Link to="/products" className="shop-now-button"><h5 className="shop-now-label">ADD NOW</h5></Link>
         </>: 
