@@ -35,16 +35,16 @@ export default function GuestForm(props) {
           <hr />
           <div className="guest-form">
             <p>Personal Details</p>
-            <div className="flex">
-              <input
-                required={true}
-                name="lastName"
-                placeholder="Last Name*"
-              ></input>
+            <div className="flex">             
               <input
                 required={true}
                 name="firstName"
                 placeholder="First Name*"
+              ></input>
+              <input
+                required={true}
+                name="lastName"
+                placeholder="Last Name*"
               ></input>
             </div>
             <div className="flex">
