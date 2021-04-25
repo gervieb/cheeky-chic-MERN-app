@@ -3,7 +3,7 @@ import { Carousel } from "react-responsive-carousel";
 import { Link } from 'react-router-dom';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import style from "../customStyles.css";
-import bag from "../images/bag.jpg"
+import bag from "../images/bags.jpg"
 import apparel from "../images/apparel.jpg"
 import shoes from "../images/shoes.jpg"
 import watch from "../images/watches.jpg"

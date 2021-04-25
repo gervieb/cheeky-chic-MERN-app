@@ -4033,7 +4033,7 @@
   dependencies:
     "cssom" "~0.3.6"
 
-"csstype@^2.5.2", "csstype@^2.6.2":
+"csstype@^2.5.2":
   "integrity" "sha512-2mSc+VEpGPblzAxyeR+vZhJKgYg0Og0nnRi7pmRXFYYxSfnOnW8A5wwQb4n4cE2nIOzqKOAzLCaEX6aBmNEv8A=="
   "resolved" "https://registry.npmjs.org/csstype/-/csstype-2.6.14.tgz"
   "version" "2.6.14"
@@ -5600,11 +5600,6 @@
     "object-assign" "^4.0.1"
     "pify" "^2.0.0"
     "pinkie-promise" "^2.0.0"
-
-"goober@^2.0.15":
-  "integrity" "sha512-wgj5C7IJX2+MyHZ4TgOA+hLL1mCDW+jGorQ5KCMLF1ofE9gQkfbo1s8txIrzIsAX65XRTm0qaipolId2KMYUkw=="
-  "resolved" "https://registry.npmjs.org/goober/-/goober-2.0.37.tgz"
-  "version" "2.0.37"
 
 "graceful-fs@^4.1.11", "graceful-fs@^4.1.15", "graceful-fs@^4.1.2", "graceful-fs@^4.1.6", "graceful-fs@^4.2.0", "graceful-fs@^4.2.4":
   "integrity" "sha512-WjKPNJF79dtJAVniUlGGWHYGz2jWxT6VhN/4m1NdkbZ2nOsEF+cI1Edgql5zCRhs/VsQYRvrXctxktVXZUkixw=="
@@ -9594,13 +9589,6 @@
   "resolved" "https://registry.npmjs.org/react-hook-form/-/react-hook-form-6.12.2.tgz"
   "version" "6.12.2"
 
-"react-hot-toast@^1.0.2":
-  "integrity" "sha512-wp89H0WA6EtiexAg5l3ys+WaZ3u0xM/FJWxl6YxR3hlquWhKvO9snBgTe4ATPEcgbS6pbc43RbuBINOkYOzA5A=="
-  "resolved" "https://registry.npmjs.org/react-hot-toast/-/react-hot-toast-1.0.2.tgz"
-  "version" "1.0.2"
-  dependencies:
-    "goober" "^2.0.15"
-
 "react-icons@^4.1.0":
   "integrity" "sha512-FCXBg1JbbR0vWALXIxmFAfozHdVIJmmwCD81Jk0EKOt7Ax4AdBNcaRkWhR0NaKy9ugJgoY3fFvo0PHpte55pXg=="
   "resolved" "https://registry.npmjs.org/react-icons/-/react-icons-4.1.0.tgz"
@@ -9757,6 +9745,13 @@
   "integrity" "sha1-MXOocLBOWjwyGgbSTNU8YDARHEU="
   "resolved" "https://registry.npmjs.org/react-stripe-checkout/-/react-stripe-checkout-2.6.3.tgz"
   "version" "2.6.3"
+
+"react-toastify@^7.0.4":
+  "integrity" "sha512-Rol7+Cn39hZp5hQ/k6CbMNE2CKYV9E5OQdC/hBLtIQU2xz7DdAm7xil4NITQTHR6zEbE5RVFbpgSwTD7xRGLeQ=="
+  "resolved" "https://registry.npmjs.org/react-toastify/-/react-toastify-7.0.4.tgz"
+  "version" "7.0.4"
+  dependencies:
+    "clsx" "^1.1.1"
 
 "react-transition-group@^4.4.0":
   "integrity" "sha512-Djqr7OQ2aPUiYurhPalTrVy9ddmFCCzwhqQmtN+J3+3DzLO209Fdr70QrN8Z3DsglWql6iY1lDWAfpFiBtuKGw=="
