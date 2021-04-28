@@ -15,7 +15,7 @@ export default function Navbar() {
         <div className="navbar-container">
             <div className="navbar">
                     <NavLink to={"/"} className="nav" exact activeClassName="nav-active">HOME</NavLink>
-                    <NavLink to={"/products"} className="nav" exact activeClassName="nav-active">SHOP</NavLink>
+                    <NavLink to={"/all-products"} className="nav" exact activeClassName="nav-active">SHOP</NavLink>
                     <NavLink to={"/about"} className="nav" exact activeClassName="nav-active">ABOUT</NavLink>
                     <NavLink to={"/contact"} className="nav" exact activeClassName="nav-active">CONTACT</NavLink> 
             </div>

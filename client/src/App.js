@@ -184,7 +184,7 @@ export default function App() {
                         <Route exact path="/" 
                             render = {props =>(<Home isLoggedIn={isLoggedIn} setCart={setCart} cart={cart} productData={productData} {...props} />)} />                         
                         <Route
-                          exact path="/products"
+                          exact path="/all-products"
                           render={props => <Products {...props} onAdd={onAdd} productData={productData} showAllProducts={showAllProducts} />}/>
                         <Route exact path="/about" component={About} />
                         <Route exact path="/contact" component={Contact} /> 
@@ -251,7 +251,7 @@ export default function App() {
                         <Route exact path="/" 
                             render = {props =>(<Home isLoggedIn={isLoggedIn} setCart={setCart} cart={cart} productData={productData} {...props} />)} /> 
                         <Route
-                          exact path="/products"
+                          exact path="/all-products"
                           render={props => <Products {...props} onAdd={onAdd} productData={productData} showAllProducts={showAllProducts} />}/>
                         <Route exact path="/about" component={About} />
                         <Route exact path="/contact" component={Contact} />

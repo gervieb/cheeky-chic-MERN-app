@@ -26,7 +26,7 @@ export default function Cart(props) {
     }
 
     const emptyCart =() => {
-      let decision = window.confirm('Are you sure you want to delete this item?')
+      let decision = window.confirm('Are you sure you want to remove all?')
       if (decision) {
       localStorage.removeItem('cart-list')
       setCart([])
@@ -38,7 +38,7 @@ export default function Cart(props) {
         {cartLength === 0 ? <>
         <img src={shoppingCart} alt="empty shopping cart" className="empty-cart-icon"/>
         <p>Your shopping cart is empty.</p>
-        <Link to="/products" className="shop-now-button"><h5 className="shop-now-label">ADD NOW</h5></Link>
+        <Link to="/all-products" className="shop-now-button"><h5 className="shop-now-label">ADD NOW</h5></Link>
         </>: 
         (<div className="cart-items-div">
           <h3>YOUR SHOPPING BASKET</h3>
@@ -47,7 +47,7 @@ export default function Cart(props) {
               <div className="cart-title"> 
                 {cartLength > 1? <h3>Cart ({cartLength} items)</h3>:
                 <h3>Cart ({cartLength} item)</h3>}                
-                  <Link to="/products" >
+                  <Link to="/all-products" >
                     <div className="continue-shop">
                       <p>Continue Shopping</p>
                       <BsArrowRight />

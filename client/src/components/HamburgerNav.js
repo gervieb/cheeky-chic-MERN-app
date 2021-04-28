@@ -14,7 +14,7 @@ export default function HamburgerNav({ navbar, showNavbar }) {
                         HOME
                     </NavLink>
                     <NavLink 
-                        to={"/products"} 
+                        to={"/all-products"} 
                         className="navbar-text" 
                         exact 
                         activeClassName="nav-active" 
