@@ -8,7 +8,7 @@ export default function ItemDetails(props) {
 
   
   function goToShop(){
-    props.history.push('/products')
+    props.history.push('/all-products')
   }
   
   useEffect(() => {
