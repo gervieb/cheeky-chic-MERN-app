@@ -426,19 +426,19 @@ button[type="submit"], .total-price> a {
 /* === not found page === */
 
 
-#notfound-wrapper {
+.notfound-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 2%;
 }
 
-#notfound-wrapper img {
+.notfound-wrapper img {
   width: 550px;
   height: 550px;
 }
 
-#info a {
+.info a {
   text-decoration: none;
   border: 1px solid #696969;
   padding: 5px 10px;
@@ -446,7 +446,7 @@ button[type="submit"], .total-price> a {
   background-color: white;
 }
 
-#info a:hover {
+.info a:hover {
   background-color: rgb(0, 99, 177);
   color: white;
 }
@@ -2543,6 +2543,15 @@ footer div > a {
   .form-shipping-details {
     width: 80%;
   }
+
+  .notfound-wrapper img {
+    width: 450px;
+    height: 450px;
+  }
+
+  .info h1 {
+    font-size: x-large;
+  }
 } 
 
 @media only screen and (max-width: 800px) {
@@ -2773,6 +2782,11 @@ footer div > a {
   .form-shipping-details {
     width: 60%;
   }
+
+  .notfound-wrapper img {
+    width: 320px;
+    height: 320px;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -2945,6 +2959,32 @@ footer div > a {
     font-size: 14px;
     width: 90%;
   }   
+
+  .notfound-wrapper img {
+    width: 220px;
+    height: 220px;
+    margin-right: 5%;
+  }
+
+  .notfound-wrapper {
+    margin: 15% 5%;
+  }
+
+  .info h1 {
+    font-size: large;
+  }
+
+  .info a {
+    padding: 5px 8px;
+    color: black;
+    background-color: white;
+    font-size: small;
+  } 
+
+  .show-searchbar {
+    top: 0;
+    height: 75px;
+  }
 }
 
 @media only screen and (max-width: 490px) {
@@ -3115,10 +3155,6 @@ footer div > a {
 
   .quantity-wrapper > button {
     margin: 2px 5px;
-  }
-
-  .show-searchbar {
-    top: 50px;
   }
 
   .show-searchbar button {

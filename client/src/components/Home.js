@@ -32,7 +32,7 @@ export default function Home(props) {
           {data.map((el, id) => (
             <div key={id}>
               <img src={el.image} alt={el.title} style={style} /> 
-              <Link to="/products"><p className="shop-now">Shop Now</p></Link>
+              <Link to="/all-products"><p className="shop-now">Shop Now</p></Link>
                 <div className="tagline">
                   <p>DISCOVER & SHOP</p>
                   <p>THE TREND</p>  

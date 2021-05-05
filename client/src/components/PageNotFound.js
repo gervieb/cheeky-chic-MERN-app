@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 
 const PageNotFound = () => {
     return (
-        <div id="notfound-wrapper">
+        <div className="notfound-wrapper">
             <img src="https://i.imgur.com/qIufhof.png" alt="caution cone icon"/>
-            <div id="info">
+            <div className="info">
                 <h1>Oops..</h1>
                 <h1>Page Not Found!</h1>
                 <Link to="/">GO TO HOME</Link>
