@@ -2808,9 +2808,10 @@ footer div > a {
   }
   
   .navbar a {
-    font-size: medium;
+    font-size: large;
     letter-spacing: 0;
     padding-bottom: 2px;
+    margin-bottom: 10px;
   }
 
   .signup-form a, .product-details label {
